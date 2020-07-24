@@ -34,7 +34,7 @@ class MELLIN:
 
     def invert(self,x,F):
         if self.shape=='nderiv': return np.sum(np.imag(self.phase * x**(-self.N) * F)/np.pi * self.W * self.JAC)
-        if self.shape='deriv':
+        if self.shape=='deriv': return np.sum(np.image(self.phase * (-self.N) * x**(-self.N - 1) * F)/np.pi * self.W * self.JAC)
 
 if __name__=='__main__':
 
