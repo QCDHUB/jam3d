@@ -85,7 +85,7 @@ def get_FUT(xA,xB,Q2,qT,hadronA,hadronB,TransversePolarizationA,TransversePolari
             PDFA = (-1.)*conf['aux'].p2n(conf['sivers'].get_C(xA, Q2)) # DY Sivers is opposite to SIDIS
             w_hadronA=conf['aux'].p2n(conf['sivers'].get_widths(Q2))
         else:
-            print 'ERR: Sivers hadronA = %s is not implemented' % (hadronA)
+            print('ERR: Sivers hadronA = %s is not implemented' % (hadronA))
             sys.exit()
             
         # Set up unpolarized functions for hadron B
@@ -99,7 +99,7 @@ def get_FUT(xA,xB,Q2,qT,hadronA,hadronB,TransversePolarizationA,TransversePolari
             PDFB = conf['pdfpi-'].get_C(xB, Q2)
             w_hadronB = conf['pdfpi-'].get_widths(Q2)
         else:
-            print 'ERR: hadronB = %s is not implemented' % (hadronB)
+            print('ERR: hadronB = %s is not implemented' % (hadronB))
             sys.exit()
 
             
@@ -112,7 +112,7 @@ def get_FUT(xA,xB,Q2,qT,hadronA,hadronB,TransversePolarizationA,TransversePolari
             PDFB = (-1.)*conf['aux'].p2n(conf['sivers'].get_C(xB, Q2)) # DY Sivers is opposite to SIDIS
             w_hadronB=conf['aux'].p2n(conf['sivers'].get_widths(Q2))
         else:
-            print 'ERR: Sivers hadronB = %s is not implemented' % (hadronB)
+            print('ERR: Sivers hadronB = %s is not implemented' % (hadronB))
             sys.exit()
         
         # Set up unpolarized functions for hadron A
@@ -126,7 +126,7 @@ def get_FUT(xA,xB,Q2,qT,hadronA,hadronB,TransversePolarizationA,TransversePolari
             PDFA = conf['pdfpi-'].get_C(xA, Q2)
             w_hadronA = conf['pdfpi-'].get_widths(Q2)
         else:
-            print 'ERR: hadronA = %s is not implemented' % (hadronA)
+            print('ERR: hadronA = %s is not implemented' % (hadronA))
             sys.exit()
     
 
@@ -153,5 +153,5 @@ if __name__ == '__main__':
     hadronB = 'p'
     TransversePolarizationB = True
 
-    print get_FUT(xA,xB,Q2,qT,hadronA,hadronB,TransversePolarizationA,TransversePolarizationB)
+    print(get_FUT(xA,xB,Q2,qT,hadronA,hadronB,TransversePolarizationA,TransversePolarizationB))
 

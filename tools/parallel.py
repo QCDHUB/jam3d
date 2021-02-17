@@ -5,7 +5,13 @@ import random
 import zmq
 import multiprocessing
 import numpy as np
-import cPickle as pickle
+try:
+    import dill as pickle
+except:
+    try:
+        import cPickle
+    except:
+        import _pickle as cPickle
 
 class PARALLEL:
 
@@ -31,7 +37,8 @@ class PARALLEL:
 
     def send(self,sock,data):
         #sock.send_json(data)
-        sock.send(pickle.dumps(data,pickle.HIGHEST_PROTOCOL))
+        #sock.send(pickle.dumps(data,pickle.HIGHEST_PROTOCOL))
+        sock.send(pickle.dumps(data))
 
     def recv(self,sock):
         #return sock.recv_json()
@@ -178,8 +185,8 @@ def example1():
 
     t=time.time()
     results=parallel.send_tasks(requests)
-    print results
-    print time.time()-t
+    print(results)
+    print(time.time()-t)
     parallel.stop_workers()
 
 def example2():
@@ -236,9 +243,9 @@ def example2():
         parallel.update_workers(state)
         results=parallel.send_tasks(requests)
 
-        print results
+        print(results)
 
-    print time.time()-t
+    print(time.time()-t)
     parallel.stop_workers()
 
 def example3():
@@ -305,7 +312,7 @@ def example3():
 
         parallel.update_workers(state)
         results=parallel.send_tasks(requests)
-        print results[0]
+        print(results[0])
 
     #print time.time()-t
     parallel.stop_workers()

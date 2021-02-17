@@ -72,4 +72,4 @@ if __name__ == "__main__":
     conf['datasets']['sidis']['filters'][1]['cond'].append("pT>0.2 and pT<0.9")
 
     TAB = READER().load_data_sets('sidis')
-    print TAB
+    print(TAB)

@@ -47,7 +47,7 @@ class RESIDUALS(_RESIDUALS):
             thy = coeff * FUT / FU1
 
         else:
-            print 'ERR: exp=%d obs=%s and hadronB=%s not implemented' % (k, obs, hadronB)
+            print('ERR: exp=%d obs=%s and hadronB=%s not implemented' % (k, obs, hadronB))
             sys.exit()
 
         return thy
@@ -141,7 +141,7 @@ class RESIDUALS(_RESIDUALS):
             return L
         elif verb == 1:
             for l in L:
-                print l
+                print(l)
             return L
 
 
@@ -175,5 +175,5 @@ if __name__ == '__main__':
     conf['wz tabs'] = READER().load_data_sets('wz')
 
     conf['residuals']= RESIDUALS()
-    print conf['residuals'].get_residuals()
+    print(conf['residuals'].get_residuals())
 

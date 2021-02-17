@@ -79,6 +79,6 @@ if __name__ == '__main__':
 
     z = 0.15
     Q2 = 2.4
-    print conf['ffpi'].get_C(z, Q2)
-    print conf['ffk'].get_C(z, Q2)
-    print conf['ffh'].get_C(z, Q2)
+    print(conf['ffpi'].get_C(z, Q2))
+    print(conf['ffk'].get_C(z, Q2))
+    print(conf['ffh'].get_C(z, Q2))

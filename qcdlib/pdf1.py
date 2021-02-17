@@ -69,4 +69,4 @@ if __name__ == '__main__':
 
     x = 0.15
     Q2 = 2.4
-    print conf['pdf'].get_C(x, Q2)
+    print(conf['pdf'].get_C(x, Q2))

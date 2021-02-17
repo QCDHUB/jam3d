@@ -4,7 +4,10 @@ import os
 import numpy as np
 import time
 import fnmatch
-import cPickle
+try:
+    import cPickle
+except:
+    import _pickle as cPickle
 import zlib
 
 
@@ -16,11 +19,14 @@ def checkdir(path):
 def tex(x):
     return r'$\mathrm{' + x + '}$'
 
-
-def save(data, name):
-    compressed = zlib.compress(cPickle.dumps(data))
-    with open(name, "wb") as f:
-        f.writelines(compressed)
+def save(data,name):  
+  compressed=zlib.compress(cPickle.dumps(data))
+  f=open(name,"wb")
+  try:
+      f.writelines(compressed)
+  except:
+      f.write(compressed)
+  f.close()
 
 
 def load(name):
@@ -38,10 +44,18 @@ def isnumeric(value):
 
 
 def load_config(fname):
-    with open(fname) as f:
-        for l in f:
-            exec l.replace('<<', '').replace('>>', '')
-    return conf
+
+    L=open(fname).readlines()
+    D = {}
+    for l in L:
+        try:
+            exec(l,D)
+        except:
+            print('ERR at the input.py. Look for %s'%l)
+            sys.exit()   
+ 
+    conf.update(D['conf'])
+
 
 
 def lprint(msg):

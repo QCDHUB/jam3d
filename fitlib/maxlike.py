@@ -92,7 +92,7 @@ class MAXLIKE:
             else: data.append('')
             if i<nparstatus: data.append(parstatus[i])
             else: data.append('')
-            print '%-120s  | %s'%tuple(data)
+            print('%-120s  | %s'%tuple(data))
         return status,parstatus
 
     def get_residuals(self,par):
@@ -113,7 +113,7 @@ class MAXLIKE:
                 pmin=conf['params'][k][kk]['min']
                 pmax=conf['params'][k][kk]['max']
                 if  p<pmin or p>pmax:
-                    print '%s-%s out of limits. '%(k,kk)
+                    print('%s-%s out of limits. '%(k,kk))
                     sys.exit()
 
         for k in conf['datasets']:
@@ -122,7 +122,7 @@ class MAXLIKE:
                 pmin=conf['datasets'][k]['norm'][kk]['min']
                 pmax=conf['datasets'][k]['norm'][kk]['max']
                 if  p<pmin or p>pmax:
-                    print '%s-%s out of limits. '%(k,kk)
+                    print('%s-%s out of limits. '%(k,kk))
                     sys.exit()
 
     def get_conf(self,_conf,step):
@@ -131,11 +131,15 @@ class MAXLIKE:
 
         #--remove pdf/ff that is not in the step
         distributions=conf['params'].keys()  #--pdf,ppdf,ffpion,ffkaon,...
-        for dist in distributions:
+        for dist in list(distributions):
+            print('current %s'%dist)
             if  dist in step['active distributions']:
                 continue
             else:
                 del conf['params'][dist]
+
+        for dist in list(distributions):
+            print('active distributions %s'%dist)
 
         #--set fixed==True for passive distributions
         if 'passive distributions' in step:
@@ -154,9 +158,9 @@ class MAXLIKE:
         #--another version for fixed parameters
         if 'fix parameters' in step:
             for dist in step['fix parameters']:
-                print dist
+                print(dist)
                 for par in step['fix parameters'][dist]:
-                    print par
+                    print(par)
                     conf['params'][dist][par]['fixed']=True
                     #--set prior parameters values for passive distributions
                     for istep in step['dep']:
@@ -168,12 +172,12 @@ class MAXLIKE:
                                 conf['params'][dist][par]['value']=prior_params[i]
 
         #--remove datasets not in the step
-        datasets=conf['datasets'].keys() #--idis,dy,....
+        datasets=list(conf['datasets']) #--idis,dy,....
         for dataset in datasets:
             if  dataset in step['datasets']:
 
                 #--remove entry from xlsx
-                xlsx=conf['datasets'][dataset]['xlsx'].keys()
+                xlsx=list(conf['datasets'][dataset]['xlsx'])
                 for idx in xlsx:
                     if  idx in step['datasets'][dataset]:
                         continue
@@ -181,7 +185,7 @@ class MAXLIKE:
                         del conf['datasets'][dataset]['xlsx'][idx]
 
                 #--remove entry from norm
-                norm=conf['datasets'][dataset]['norm'].keys()
+                norm=list(conf['datasets'][dataset]['norm'])
                 for idx in norm:
                     if  idx in step['datasets'][dataset]:
                         continue
@@ -343,13 +347,13 @@ class MAXLIKE:
                 conf.update(copy.deepcopy(conf_bkp))
                 conf.update(self.get_conf(conf_bkp,step))
 
-                print
+                print()
                 msg='--step %d: '%i
                 msg+='npQCD objects ='
                 for _ in conf['params'].keys():   msg+=_+' '
                 msg+='datasets ='
                 for _ in conf['datasets'].keys(): msg+=_+' '
-                print msg
+                print(msg)
 
                 par=self.get_par(i,step['dep'])
                 self.order[i]=self.parman.order[:]

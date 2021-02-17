@@ -199,7 +199,7 @@ class DGLAP:
               operator*=np.exp(np.log((1+b1*a)/(1+b1*a0))/b1*EO['U'][Nf,1])
 
           if  self.order==2:
-              print 'ERR(DGLAP): iterated non-singlet evolution not implemented for NNLO'
+              print('ERR(DGLAP): iterated non-singlet evolution not implemented for NNLO')
               sys.exit()
 
       q=operator*qini

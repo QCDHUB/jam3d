@@ -7,11 +7,22 @@ This module provides the interface to the configuration settings.
 conf = {}
 
 
+
 def load_config(fname):
-    """Load the settings stored in the file at *fname* into *conf*."""
-    with open(fname) as f:
-        L = f.readlines()
+
+    L=open(fname).readlines()
     D = {}
     for l in L:
-        exec l in D
+        try:
+            exec(l,D)
+        except:
+            print('ERR at the input.py. Look for %s'%l)
+            sys.exit()   
+ 
     conf.update(D['conf'])
+
+
+
+
+
+

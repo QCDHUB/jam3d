@@ -29,4 +29,4 @@ if __name__ == "__main__":
     conf['datasets']['dy']['xlsx'][1003] = '../../database/dy/expdata/1003.xlsx'
 
     TAB = READER().load_data_sets('dy')
-    print TAB
+    print(TAB)
