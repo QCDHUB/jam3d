@@ -131,5 +131,5 @@ if __name__ == '__main__':
     hadron1 = 'pi+'
     hadron2 = 'pi-'
     #for i in [1,2]:
-    print 1, ZX(1, z1, z2, Q2, pT, hadron1, hadron2)
-    print 2, ZX(2, z1, z2, Q2, pT, hadron1, hadron2)
+    print(1, ZX(1, z1, z2, Q2, pT, hadron1, hadron2))
+    print(2, ZX(2, z1, z2, Q2, pT, hadron1, hadron2))

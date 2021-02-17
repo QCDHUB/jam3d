@@ -76,7 +76,7 @@ class PARMAN:
                     pmin=conf['params'][k][kk]['min']
                     pmax=conf['params'][k][kk]['max']
                     if  p<pmin or p>pmax:
-                        print k,kk, p,pmin,pmax
+                        print(k,kk, p,pmin,pmax)
                         flag=False
 
         if  'datasets' in conf:
@@ -88,7 +88,7 @@ class PARMAN:
                         pmax=conf['datasets'][k]['norm'][kk]['max']
                         if p<pmin or p>pmax:
                           flag=False
-                          print k,kk, p,pmin,pmax
+                          print(k,kk, p,pmin,pmax)
 
         return flag
 
@@ -111,7 +111,8 @@ class PARMAN:
                   self.shifts+=1
 
         if  initial:
-            for k in conf['params']: semaphore[k]=1
+            for _ in conf['params']: 
+                semaphore[_]=1
 
         #--This is needed so the pion widths get updated
         #--when they are set equal to the proton widths

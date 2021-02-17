@@ -4,7 +4,7 @@ import os
 import numpy as np
 from scipy.integrate import quad
 from tools.residuals import _RESIDUALS
-from reader import READER
+from obslib.sia.reader import READER
 from obslib.sia import collins0 as stfuncs
 from tools.config import conf
 
@@ -86,7 +86,7 @@ class RESIDUALS(_RESIDUALS):
             thy = factor * (ZUcol / ZUuu - ZCcol / ZCuu)
 
         else:
-            print 'ERR: obs=%s  not implemented' % obs
+            print('ERR: obs=%s  not implemented' % obs)
             sys.exit()
 
         if not col == 'BESIII':
@@ -171,7 +171,7 @@ class RESIDUALS(_RESIDUALS):
             return L
         elif verb == 1:
             for l in L:
-                print l
+                print(l)
 
 if __name__ == '__main__':
 

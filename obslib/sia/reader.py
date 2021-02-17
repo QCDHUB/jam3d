@@ -44,4 +44,4 @@ if __name__ == "__main__":
     #conf['datasets']['sia']['filters'].append("pT>0.2 and pT<0.8")
 
     TAB = READER().load_data_sets('sia')
-    print TAB
+    print(TAB)

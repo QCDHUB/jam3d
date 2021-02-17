@@ -270,7 +270,7 @@ class dep_RESIDUALS:
             return L
         elif verb == 1:
             for l in L:
-                print l
+                print(l)
 
     def ___save_results(self, path):
         save(self.tabs, path)
@@ -327,7 +327,7 @@ class _RESIDUALS:
                 raise ValueError(msg)
 
             elif len(norm)==1:
-                print '%d has norm uncertainty'%k
+                print('%d has norm uncertainty'%k)
                 dN=self.tabs[k][norm[0]][0]/self.tabs[k]['value'][0]
                 conf['datasets'][self.reaction]['norm'][k]['dN']=dN
 

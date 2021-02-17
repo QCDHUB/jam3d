@@ -5,6 +5,8 @@ conf['bootstrap']=False
 conf['flat par']=True
 conf['ftol']=1e-8
 
+conf['order']='LO'
+conf['Q20']=1
 #--datasets
 
 conf['datasets']={}

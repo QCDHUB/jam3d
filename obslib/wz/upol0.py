@@ -120,7 +120,7 @@ def _get_FUWZ(xA,xB,qT,hadronA,hadronB,boson,PDFA,PDFB,w_hadronA,w_hadronB):
         res += (conf['aux'].cvsz**2 + conf['aux'].casz**2) * sbarA * sB * np.exp(-qT**2 / wq) / (np.pi * wq)  
         
     else:
-        print 'ERR: boson = %s' % (boson)
+        print('ERR: boson = %s' % (boson))
         sys.exit()
        
 
@@ -154,7 +154,7 @@ def get_FUWZ(xA,xB,qT,hadronA,hadronB,boson):
         PDFA = conf['aux'].p2n(conf['pdf'].get_C(xA, Q2))
         w_hadronA = conf['aux'].p2n(conf['pdf'].get_widths(Q2))
     else:
-        print 'ERR: hadronA = %s is not implemented' % (hadronA)
+        print('ERR: hadronA = %s is not implemented' % (hadronA))
         sys.exit()
       
         
@@ -166,7 +166,7 @@ def get_FUWZ(xA,xB,qT,hadronA,hadronB,boson):
         PDFB = conf['aux'].p2n(conf['pdf'].get_C(xB, Q2))
         w_hadronB = conf['aux'].p2n(conf['pdf'].get_widths(Q2))
     else:
-        print 'ERR: hadronB = %s is not implemented' % (hadronB)
+        print('ERR: hadronB = %s is not implemented' % (hadronB))
         sys.exit()
 
                 
@@ -217,12 +217,12 @@ if __name__ == '__main__':
     hadronA = 'p'
     hadronB = 'p'
  
-    print get_FUWZ(xA,xB,qT,hadronA,hadronB,'W+')
+    print(get_FUWZ(xA,xB,qT,hadronA,hadronB,'W+'))
     
     energy = 500.**2
     y = 0.5
     
-    print get_FUWZY(y,qT,energy,hadronA,hadronB,'W+')
+    print(get_FUWZY(y,qT,energy,hadronA,hadronB,'W+'))
 
 
 
