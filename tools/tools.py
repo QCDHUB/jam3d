@@ -19,11 +19,14 @@ def checkdir(path):
 def tex(x):
     return r'$\mathrm{' + x + '}$'
 
-
-def save(data, name):
-    compressed = zlib.compress(cPickle.dumps(data))
-    with open(name, "wb") as f:
-        f.writelines(compressed)
+def save(data,name):  
+  compressed=zlib.compress(cPickle.dumps(data))
+  f=open(name,"wb")
+  try:
+      f.writelines(compressed)
+  except:
+      f.write(compressed)
+  f.close()
 
 
 def load(name):

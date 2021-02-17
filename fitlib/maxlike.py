@@ -132,10 +132,14 @@ class MAXLIKE:
         #--remove pdf/ff that is not in the step
         distributions=conf['params'].keys()  #--pdf,ppdf,ffpion,ffkaon,...
         for dist in list(distributions):
+            print('current %s'%dist)
             if  dist in step['active distributions']:
                 continue
             else:
                 del conf['params'][dist]
+
+        for dist in list(distributions):
+            print('active distributions %s'%dist)
 
         #--set fixed==True for passive distributions
         if 'passive distributions' in step:

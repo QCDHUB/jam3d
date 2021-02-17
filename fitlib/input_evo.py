@@ -147,18 +147,18 @@ conf['params']={}
 #--Parameters in gaussian approximation, parton model:
 #--TMD PDF:
 conf['params']['pdf']={}
-conf['params']['pdf']['widths1_uv']  ={'value':    5.40344e-01,'min': 0.1,'max':0.8,'fixed':True}
+conf['params']['pdf']['widths1_uv']  ={'value':    5.40344e-01,'min': 0.1,'max':0.8,'fixed':False}
 conf['params']['pdf']['widths2_uv']  ={'value':    0.00000e+00,'min':-1,'max':1,'fixed':True}
 conf['params']['pdf']['widths1_dv']  ={'value':    5.40344e-01,'min': 0.1,'max':0.8,'fixed':'widths1_uv'}
 conf['params']['pdf']['widths2_dv']  ={'value':    0.00000e+00,'min':-1,'max':1,'fixed':'widths2_uv'}
-conf['params']['pdf']['widths1_sea'] ={'value':    5.85373e-01,'min': 0.1,'max':0.8,'fixed':True}
+conf['params']['pdf']['widths1_sea'] ={'value':    5.85373e-01,'min': 0.1,'max':0.8,'fixed':False}
 conf['params']['pdf']['widths2_sea'] ={'value':    0.00000e+00,'min':-1,'max':1,'fixed':'widths2_uv'}
 
 #--TMD FF:
 conf['params']['ffpi']={}
-conf['params']['ffpi']['widths1_fav']  ={'value':    1.22011e-01,'min': 0.05,'max':0.3,'fixed':True}
+conf['params']['ffpi']['widths1_fav']  ={'value':    1.22011e-01,'min': 0.05,'max':0.3,'fixed':False}
 conf['params']['ffpi']['widths2_fav']  ={'value':    0.00000e+00,'min':-1,'max':1,'fixed':True}
-conf['params']['ffpi']['widths1_ufav'] ={'value':    1.43665e-01,'min': 0.05,'max':0.3,'fixed':True}
+conf['params']['ffpi']['widths1_ufav'] ={'value':    1.43665e-01,'min': 0.05,'max':0.3,'fixed':False}
 conf['params']['ffpi']['widths2_ufav'] ={'value':    0.00000e+00,'min':-1,'max':1,'fixed':'widths2_fav'}
 
 conf['params']['ffk']={}
@@ -744,250 +744,250 @@ conf['steps'][1]['datasets']['sidis'].append(1001) #'sidis/expdata/1001.xlsx'  #
 conf['steps'][1]['datasets']['sidis'].append(1004) #'sidis/expdata/1004.xlsx'  # |  deuteron | pi+   | M_Hermes | hermes
 conf['steps'][1]['datasets']['sidis'].append(1005) #'sidis/expdata/1005.xlsx'  # |  deuteron | pi-   | M_Hermes | hermes
 
-#--sidis Sivers (HERMES only)
-conf['steps'][2]={}
-conf['steps'][2]['dep']=[1]
-conf['steps'][2]['active distributions']=['pdf','ffpi','sivers']
-
-conf['steps'][2]['datasets']={}
-conf['steps'][2]['datasets']['sidis']=[]
-conf['steps'][2]['datasets']['sidis'].append(2000) # proton   | pi+    | AUTsivers  | hermes  | PT
-conf['steps'][2]['datasets']['sidis'].append(2001) # proton   | pi+    | AUTsivers  | hermes  | x
-conf['steps'][2]['datasets']['sidis'].append(2002) # proton   | pi+    | AUTsivers  | hermes  | z
-conf['steps'][2]['datasets']['sidis'].append(2003) # proton   | pi-    | AUTsivers  | hermes | PT
-conf['steps'][2]['datasets']['sidis'].append(2004) # proton   | pi-    | AUTsivers  | hermes  | x
-conf['steps'][2]['datasets']['sidis'].append(2005) # proton   | pi-    | AUTsivers  | hermes  | z
-conf['steps'][2]['datasets']['sidis'].append(2006) # proton   | pi0    | AUTsivers  | hermes | PT
-conf['steps'][2]['datasets']['sidis'].append(2007) # proton   | pi0    | AUTsivers  | hermes  | x
-conf['steps'][2]['datasets']['sidis'].append(2008) # proton   | pi0    | AUTsivers  | hermes  | z
-
-#--sidis Sivers (HERMES + COMPASS)
-conf['steps'][3]={}
-conf['steps'][3]['dep']=[2]
-conf['steps'][3]['active distributions']=['pdf','ffpi','sivers']
-
-conf['steps'][3]['datasets']={}
-conf['steps'][3]['datasets']['sidis']=[]
-conf['steps'][3]['datasets']['sidis'].append(2000) # proton   | pi+    | AUTsivers  | hermes  | PT
-conf['steps'][3]['datasets']['sidis'].append(2001) # proton   | pi+    | AUTsivers  | hermes  | x
-conf['steps'][3]['datasets']['sidis'].append(2002) # proton   | pi+    | AUTsivers  | hermes  | z
-conf['steps'][3]['datasets']['sidis'].append(2003) # proton   | pi-    | AUTsivers  | hermes | PT
-conf['steps'][3]['datasets']['sidis'].append(2004) # proton   | pi-    | AUTsivers  | hermes  | x
-conf['steps'][3]['datasets']['sidis'].append(2005) # proton   | pi-    | AUTsivers  | hermes  | z
-conf['steps'][3]['datasets']['sidis'].append(2006) # proton   | pi0    | AUTsivers  | hermes | PT
-conf['steps'][3]['datasets']['sidis'].append(2007) # proton   | pi0    | AUTsivers  | hermes  | x
-conf['steps'][3]['datasets']['sidis'].append(2008) # proton   | pi0    | AUTsivers  | hermes  | z
-conf['steps'][3]['datasets']['sidis'].append(2020) # proton | h+    | AUTsivers  | compass   | PT
-conf['steps'][3]['datasets']['sidis'].append(2021) # proton | h+    | AUTsivers  | compass    | x
-conf['steps'][3]['datasets']['sidis'].append(2022) # proton | h+    | AUTsivers  | compass    | z
-conf['steps'][3]['datasets']['sidis'].append(2023) # proton | h-    | AUTsivers  | compass   | PT
-conf['steps'][3]['datasets']['sidis'].append(2024) # proton | h-    | AUTsivers  | compass    | x
-conf['steps'][3]['datasets']['sidis'].append(2025) # proton | h-    | AUTsivers  | compass    | z
-conf['steps'][3]['datasets']['sidis'].append(2026) # deuteron | pi+    | AUTsivers  | compass| PT
-conf['steps'][3]['datasets']['sidis'].append(2027) # deuteron | pi+    | AUTsivers  | compass | x
-conf['steps'][3]['datasets']['sidis'].append(2028) # deuteron | pi+    | AUTsivers  | compass | z
-conf['steps'][3]['datasets']['sidis'].append(2029) # deuteron | pi-    | AUTsivers  | compass| PT
-conf['steps'][3]['datasets']['sidis'].append(2030) # deuteron | pi-    | AUTsivers  | compass | x
-conf['steps'][3]['datasets']['sidis'].append(2031) # deuteron | pi-    | AUTsivers  | compass | z
-conf['steps'][3]['datasets']['sidis'].append(2046) # proton | h-    | AUTsivers  | compass   | PT
-conf['steps'][3]['datasets']['sidis'].append(2047) # proton | h-    | AUTsivers  | compass    | x
-conf['steps'][3]['datasets']['sidis'].append(2048) # proton | h-    | AUTsivers  | compass    | z
-conf['steps'][3]['datasets']['sidis'].append(2049) # proton | h+    | AUTsivers  | compass   | PT
-conf['steps'][3]['datasets']['sidis'].append(2050) # proton | h+    | AUTsivers  | compass    | x
-conf['steps'][3]['datasets']['sidis'].append(2051) # proton | h+    | AUTsivers  | compass    | z
-
-#--sidis Collins (HERMES only)
-conf['steps'][4]={}
-conf['steps'][4]['dep']=[1]
-conf['steps'][4]['active distributions']=['pdf','ffpi','transversity','collinspi']
-conf['steps'][4]['datasets']={}
-
-conf['steps'][4]['datasets']['sidis']=[]
-conf['steps'][4]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
-conf['steps'][4]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
-conf['steps'][4]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
-conf['steps'][4]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
-conf['steps'][4]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
-conf['steps'][4]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
-
-#--sidis Collins (HERMES + COMPASS)
-conf['steps'][5]={}
-conf['steps'][5]['dep']=[4]
-conf['steps'][5]['active distributions']=['pdf','ffpi','transversity','collinspi']
-conf['steps'][5]['datasets']={}
-
-conf['steps'][5]['datasets']['sidis']=[]
-conf['steps'][5]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
-conf['steps'][5]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
-conf['steps'][5]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
-conf['steps'][5]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
-conf['steps'][5]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
-conf['steps'][5]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
-conf['steps'][5]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
-conf['steps'][5]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
-conf['steps'][5]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
-conf['steps'][5]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
-conf['steps'][5]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
-conf['steps'][5]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
-conf['steps'][5]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
-conf['steps'][5]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
-conf['steps'][5]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
-conf['steps'][5]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
-conf['steps'][5]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
-conf['steps'][5]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
-
-#--(sia Collins) + (sidis Collins)
-conf['steps'][6]={}
-conf['steps'][6]['dep']=[5]
-conf['steps'][6]['active distributions']=['pdf','ffpi','transversity','collinspi']
-conf['steps'][6]['datasets']={}
-
-conf['steps'][6]['datasets']['sia']=[]
-conf['steps'][6]['datasets']['sia'].append(1000) # babar | pi,pi | AUL-0     | 9      | z1,z2,pT0  |
-conf['steps'][6]['datasets']['sia'].append(1001) # babar | pi,pi | AUC-0     | 9      | z1,z2,pT0  |
-conf['steps'][6]['datasets']['sia'].append(1002) # babar | pi,pi | AUC-0     | 36     | z1,z2      |
-conf['steps'][6]['datasets']['sia'].append(1003) # babar | pi,pi | AUL-0     | 36     | z1,z2      |
-conf['steps'][6]['datasets']['sia'].append(1004) # belle | pi,pi | AUT-0-CCP | 16     | z1,z2,qT   |
-conf['steps'][6]['datasets']['sia'].append(1005) # belle | pi,pi | AUT-0     | 16     | z1,z2,qT   |
-conf['steps'][6]['datasets']['sia'].append(2008) # babar | pi,pi | AUL-0     | 16     | z1,z2      |
-conf['steps'][6]['datasets']['sia'].append(2009) # babar | pi,pi | AUC-0     | 16     | z1,z2      |
-
-conf['steps'][6]['datasets']['sidis']=[]
-conf['steps'][6]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
-conf['steps'][6]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
-conf['steps'][6]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
-conf['steps'][6]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
-conf['steps'][6]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
-conf['steps'][6]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
-conf['steps'][6]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
-conf['steps'][6]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
-conf['steps'][6]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
-conf['steps'][6]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
-conf['steps'][6]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
-conf['steps'][6]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
-conf['steps'][6]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
-conf['steps'][6]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
-conf['steps'][6]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
-conf['steps'][6]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
-conf['steps'][6]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
-conf['steps'][6]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
-
-#--(sia collins) + (sidis Collins) + (sidis AUT\sin\phi_S)
-conf['steps'][7]={}
-conf['steps'][7]['dep']=[6]
-conf['steps'][7]['active distributions']=['pdf','ffpi','transversity','Htildepi','collinspi']
-conf['steps'][7]['datasets']={}
-
-conf['steps'][7]['datasets']['sidis']=[]
-conf['steps'][7]['datasets']['sidis'].append(9011)  #   COMPASS    proton  h+    z
-conf['steps'][7]['datasets']['sidis'].append(9022)  #   COMPASS    proton  h-    z
-conf['steps'][7]['datasets']['sidis'].append(9033)  #   COMPASS    proton  h+    x
-conf['steps'][7]['datasets']['sidis'].append(9044)  #   COMPASS    proton  h-    x
-
-conf['steps'][7]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
-conf['steps'][7]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
-conf['steps'][7]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
-conf['steps'][7]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
-conf['steps'][7]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
-conf['steps'][7]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
-conf['steps'][7]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
-conf['steps'][7]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
-conf['steps'][7]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
-conf['steps'][7]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
-conf['steps'][7]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
-conf['steps'][7]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
-conf['steps'][7]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
-conf['steps'][7]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
-conf['steps'][7]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
-conf['steps'][7]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
-conf['steps'][7]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
-conf['steps'][7]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
-
-conf['steps'][7]['datasets']['sia']=[]
-conf['steps'][7]['datasets']['sia'].append(1000) # babar | pi,pi | AUL-0     | 9      | z1,z2,pT0  |
-conf['steps'][7]['datasets']['sia'].append(1001) # babar | pi,pi | AUC-0     | 9      | z1,z2,pT0  |
-conf['steps'][7]['datasets']['sia'].append(1002) # babar | pi,pi | AUC-0     | 36     | z1,z2      |
-conf['steps'][7]['datasets']['sia'].append(1003) # babar | pi,pi | AUL-0     | 36     | z1,z2      |
-conf['steps'][7]['datasets']['sia'].append(1004) # belle | pi,pi | AUT-0-CCP | 16     | z1,z2,qT   |
-conf['steps'][7]['datasets']['sia'].append(1005) # belle | pi,pi | AUT-0     | 16     | z1,z2,qT   |
-conf['steps'][7]['datasets']['sia'].append(2008) # babar | pi,pi | AUL-0     | 16     | z1,z2      |
-conf['steps'][7]['datasets']['sia'].append(2009) # babar | pi,pi | AUC-0     | 16     | z1,z2      |
-
-#--unpol + (sidis Sivers) + (sia Collins) + (sidis Collins) + (sidis AUT\sin\phi_S) + (pp A_N)
-conf['steps'][8]={}
-conf['steps'][8]['dep']=[3,7]
-conf['steps'][8]['active distributions']=['pdf','ffpi','sivers','collinspi','transversity','Htildepi']
-conf['steps'][8]['datasets']={}
-
-conf['steps'][8]['datasets']['sidis']=[]
-conf['steps'][8]['datasets']['sidis'].append(2000) # proton   | pi+    | AUTsivers  | hermes  | PT
-conf['steps'][8]['datasets']['sidis'].append(2001) # proton   | pi+    | AUTsivers  | hermes  | x
-conf['steps'][8]['datasets']['sidis'].append(2002) # proton   | pi+    | AUTsivers  | hermes  | z
-conf['steps'][8]['datasets']['sidis'].append(2003) # proton   | pi-    | AUTsivers  | hermes | PT
-conf['steps'][8]['datasets']['sidis'].append(2004) # proton   | pi-    | AUTsivers  | hermes  | x
-conf['steps'][8]['datasets']['sidis'].append(2005) # proton   | pi-    | AUTsivers  | hermes  | z
-conf['steps'][8]['datasets']['sidis'].append(2006) # proton   | pi0    | AUTsivers  | hermes | PT
-conf['steps'][8]['datasets']['sidis'].append(2007) # proton   | pi0    | AUTsivers  | hermes  | x
-conf['steps'][8]['datasets']['sidis'].append(2008) # proton   | pi0    | AUTsivers  | hermes  | z
-conf['steps'][8]['datasets']['sidis'].append(2020) # proton | h+    | AUTsivers  | compass   | PT
-conf['steps'][8]['datasets']['sidis'].append(2021) # proton | h+    | AUTsivers  | compass    | x
-conf['steps'][8]['datasets']['sidis'].append(2022) # proton | h+    | AUTsivers  | compass    | z
-conf['steps'][8]['datasets']['sidis'].append(2023) # proton | h-    | AUTsivers  | compass   | PT
-conf['steps'][8]['datasets']['sidis'].append(2024) # proton | h-    | AUTsivers  | compass    | x
-conf['steps'][8]['datasets']['sidis'].append(2025) # proton | h-    | AUTsivers  | compass    | z
-conf['steps'][8]['datasets']['sidis'].append(2026) # deuteron | pi+    | AUTsivers  | compass| PT
-conf['steps'][8]['datasets']['sidis'].append(2027) # deuteron | pi+    | AUTsivers  | compass | x
-conf['steps'][8]['datasets']['sidis'].append(2028) # deuteron | pi+    | AUTsivers  | compass | z
-conf['steps'][8]['datasets']['sidis'].append(2029) # deuteron | pi-    | AUTsivers  | compass| PT
-conf['steps'][8]['datasets']['sidis'].append(2030) # deuteron | pi-    | AUTsivers  | compass | x
-conf['steps'][8]['datasets']['sidis'].append(2031) # deuteron | pi-    | AUTsivers  | compass | z
-conf['steps'][8]['datasets']['sidis'].append(2046) # proton | h-    | AUTsivers  | compass   | PT
-conf['steps'][8]['datasets']['sidis'].append(2047) # proton | h-    | AUTsivers  | compass    | x
-conf['steps'][8]['datasets']['sidis'].append(2048) # proton | h-    | AUTsivers  | compass    | z
-conf['steps'][8]['datasets']['sidis'].append(2049) # proton | h+    | AUTsivers  | compass   | PT
-conf['steps'][8]['datasets']['sidis'].append(2050) # proton | h+    | AUTsivers  | compass    | x
-conf['steps'][8]['datasets']['sidis'].append(2051) # proton | h+    | AUTsivers  | compass    | z
-
-conf['steps'][8]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
-conf['steps'][8]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
-conf['steps'][8]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
-conf['steps'][8]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
-conf['steps'][8]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
-conf['steps'][8]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
-conf['steps'][8]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
-conf['steps'][8]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
-conf['steps'][8]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
-conf['steps'][8]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
-conf['steps'][8]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
-conf['steps'][8]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
-conf['steps'][8]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
-conf['steps'][8]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
-conf['steps'][8]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
-conf['steps'][8]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
-conf['steps'][8]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
-conf['steps'][8]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
-
-conf['steps'][8]['datasets']['sidis'].append(9011)  #   COMPASS    proton  h+    z
-conf['steps'][8]['datasets']['sidis'].append(9022)  #   COMPASS    proton  h-    z
-conf['steps'][8]['datasets']['sidis'].append(9033)  #   COMPASS    proton  h+    x
-conf['steps'][8]['datasets']['sidis'].append(9044)  #   COMPASS    proton  h-    x
-
-conf['steps'][8]['datasets']['sia']=[]
-conf['steps'][8]['datasets']['sia'].append(1000) # babar | pi,pi | AUL-0     | 9      | z1,z2,pT0  |
-conf['steps'][8]['datasets']['sia'].append(1001) # babar | pi,pi | AUC-0     | 9      | z1,z2,pT0  |
-conf['steps'][8]['datasets']['sia'].append(1002) # babar | pi,pi | AUC-0     | 36     | z1,z2      |
-conf['steps'][8]['datasets']['sia'].append(1003) # babar | pi,pi | AUL-0     | 36     | z1,z2      |
-conf['steps'][8]['datasets']['sia'].append(1004) # belle | pi,pi | AUT-0-CCP | 16     | z1,z2,qT   |
-conf['steps'][8]['datasets']['sia'].append(1005) # belle | pi,pi | AUT-0     | 16     | z1,z2,qT   |
-conf['steps'][8]['datasets']['sia'].append(2008) # babar | pi,pi | AUL-0     | 16     | z1,z2      |
-conf['steps'][8]['datasets']['sia'].append(2009) # babar | pi,pi | AUC-0     | 16     | z1,z2      |
-
-conf['steps'][8]['datasets']['AN']=[]
-conf['steps'][8]['datasets']['AN'].append(1000) # BRAHMS pim 2.3
-conf['steps'][8]['datasets']['AN'].append(1001) # BRAHMS   pim 4
-conf['steps'][8]['datasets']['AN'].append(1002) # BRAHMS pip 2.3
-conf['steps'][8]['datasets']['AN'].append(1003) # BRAHMS   pip 4
-conf['steps'][8]['datasets']['AN'].append(2000) # STAR    piz 04
-conf['steps'][8]['datasets']['AN'].append(2001) # STAR   piz 3.3
-conf['steps'][8]['datasets']['AN'].append(2002) # STAR  piz 3.68
-conf['steps'][8]['datasets']['AN'].append(2003) # STAR   piz 3.7
+##--sidis Sivers (HERMES only)
+#conf['steps'][2]={}
+#conf['steps'][2]['dep']=[1]
+#conf['steps'][2]['active distributions']=['pdf','ffpi','sivers']
+#
+#conf['steps'][2]['datasets']={}
+#conf['steps'][2]['datasets']['sidis']=[]
+#conf['steps'][2]['datasets']['sidis'].append(2000) # proton   | pi+    | AUTsivers  | hermes  | PT
+#conf['steps'][2]['datasets']['sidis'].append(2001) # proton   | pi+    | AUTsivers  | hermes  | x
+#conf['steps'][2]['datasets']['sidis'].append(2002) # proton   | pi+    | AUTsivers  | hermes  | z
+#conf['steps'][2]['datasets']['sidis'].append(2003) # proton   | pi-    | AUTsivers  | hermes | PT
+#conf['steps'][2]['datasets']['sidis'].append(2004) # proton   | pi-    | AUTsivers  | hermes  | x
+#conf['steps'][2]['datasets']['sidis'].append(2005) # proton   | pi-    | AUTsivers  | hermes  | z
+#conf['steps'][2]['datasets']['sidis'].append(2006) # proton   | pi0    | AUTsivers  | hermes | PT
+#conf['steps'][2]['datasets']['sidis'].append(2007) # proton   | pi0    | AUTsivers  | hermes  | x
+#conf['steps'][2]['datasets']['sidis'].append(2008) # proton   | pi0    | AUTsivers  | hermes  | z
+#
+##--sidis Sivers (HERMES + COMPASS)
+#conf['steps'][3]={}
+#conf['steps'][3]['dep']=[2]
+#conf['steps'][3]['active distributions']=['pdf','ffpi','sivers']
+#
+#conf['steps'][3]['datasets']={}
+#conf['steps'][3]['datasets']['sidis']=[]
+#conf['steps'][3]['datasets']['sidis'].append(2000) # proton   | pi+    | AUTsivers  | hermes  | PT
+#conf['steps'][3]['datasets']['sidis'].append(2001) # proton   | pi+    | AUTsivers  | hermes  | x
+#conf['steps'][3]['datasets']['sidis'].append(2002) # proton   | pi+    | AUTsivers  | hermes  | z
+#conf['steps'][3]['datasets']['sidis'].append(2003) # proton   | pi-    | AUTsivers  | hermes | PT
+#conf['steps'][3]['datasets']['sidis'].append(2004) # proton   | pi-    | AUTsivers  | hermes  | x
+#conf['steps'][3]['datasets']['sidis'].append(2005) # proton   | pi-    | AUTsivers  | hermes  | z
+#conf['steps'][3]['datasets']['sidis'].append(2006) # proton   | pi0    | AUTsivers  | hermes | PT
+#conf['steps'][3]['datasets']['sidis'].append(2007) # proton   | pi0    | AUTsivers  | hermes  | x
+#conf['steps'][3]['datasets']['sidis'].append(2008) # proton   | pi0    | AUTsivers  | hermes  | z
+#conf['steps'][3]['datasets']['sidis'].append(2020) # proton | h+    | AUTsivers  | compass   | PT
+#conf['steps'][3]['datasets']['sidis'].append(2021) # proton | h+    | AUTsivers  | compass    | x
+#conf['steps'][3]['datasets']['sidis'].append(2022) # proton | h+    | AUTsivers  | compass    | z
+#conf['steps'][3]['datasets']['sidis'].append(2023) # proton | h-    | AUTsivers  | compass   | PT
+#conf['steps'][3]['datasets']['sidis'].append(2024) # proton | h-    | AUTsivers  | compass    | x
+#conf['steps'][3]['datasets']['sidis'].append(2025) # proton | h-    | AUTsivers  | compass    | z
+#conf['steps'][3]['datasets']['sidis'].append(2026) # deuteron | pi+    | AUTsivers  | compass| PT
+#conf['steps'][3]['datasets']['sidis'].append(2027) # deuteron | pi+    | AUTsivers  | compass | x
+#conf['steps'][3]['datasets']['sidis'].append(2028) # deuteron | pi+    | AUTsivers  | compass | z
+#conf['steps'][3]['datasets']['sidis'].append(2029) # deuteron | pi-    | AUTsivers  | compass| PT
+#conf['steps'][3]['datasets']['sidis'].append(2030) # deuteron | pi-    | AUTsivers  | compass | x
+#conf['steps'][3]['datasets']['sidis'].append(2031) # deuteron | pi-    | AUTsivers  | compass | z
+#conf['steps'][3]['datasets']['sidis'].append(2046) # proton | h-    | AUTsivers  | compass   | PT
+#conf['steps'][3]['datasets']['sidis'].append(2047) # proton | h-    | AUTsivers  | compass    | x
+#conf['steps'][3]['datasets']['sidis'].append(2048) # proton | h-    | AUTsivers  | compass    | z
+#conf['steps'][3]['datasets']['sidis'].append(2049) # proton | h+    | AUTsivers  | compass   | PT
+#conf['steps'][3]['datasets']['sidis'].append(2050) # proton | h+    | AUTsivers  | compass    | x
+#conf['steps'][3]['datasets']['sidis'].append(2051) # proton | h+    | AUTsivers  | compass    | z
+#
+##--sidis Collins (HERMES only)
+#conf['steps'][4]={}
+#conf['steps'][4]['dep']=[1]
+#conf['steps'][4]['active distributions']=['pdf','ffpi','transversity','collinspi']
+#conf['steps'][4]['datasets']={}
+#
+#conf['steps'][4]['datasets']['sidis']=[]
+#conf['steps'][4]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
+#conf['steps'][4]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
+#conf['steps'][4]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
+#conf['steps'][4]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
+#conf['steps'][4]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
+#conf['steps'][4]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
+#
+##--sidis Collins (HERMES + COMPASS)
+#conf['steps'][5]={}
+#conf['steps'][5]['dep']=[4]
+#conf['steps'][5]['active distributions']=['pdf','ffpi','transversity','collinspi']
+#conf['steps'][5]['datasets']={}
+#
+#conf['steps'][5]['datasets']['sidis']=[]
+#conf['steps'][5]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
+#conf['steps'][5]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
+#conf['steps'][5]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
+#conf['steps'][5]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
+#conf['steps'][5]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
+#conf['steps'][5]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
+#conf['steps'][5]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
+#conf['steps'][5]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
+#conf['steps'][5]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
+#conf['steps'][5]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
+#conf['steps'][5]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
+#conf['steps'][5]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
+#conf['steps'][5]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
+#conf['steps'][5]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
+#conf['steps'][5]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
+#conf['steps'][5]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
+#conf['steps'][5]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
+#conf['steps'][5]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
+#
+##--(sia Collins) + (sidis Collins)
+#conf['steps'][6]={}
+#conf['steps'][6]['dep']=[5]
+#conf['steps'][6]['active distributions']=['pdf','ffpi','transversity','collinspi']
+#conf['steps'][6]['datasets']={}
+#
+#conf['steps'][6]['datasets']['sia']=[]
+#conf['steps'][6]['datasets']['sia'].append(1000) # babar | pi,pi | AUL-0     | 9      | z1,z2,pT0  |
+#conf['steps'][6]['datasets']['sia'].append(1001) # babar | pi,pi | AUC-0     | 9      | z1,z2,pT0  |
+#conf['steps'][6]['datasets']['sia'].append(1002) # babar | pi,pi | AUC-0     | 36     | z1,z2      |
+#conf['steps'][6]['datasets']['sia'].append(1003) # babar | pi,pi | AUL-0     | 36     | z1,z2      |
+#conf['steps'][6]['datasets']['sia'].append(1004) # belle | pi,pi | AUT-0-CCP | 16     | z1,z2,qT   |
+#conf['steps'][6]['datasets']['sia'].append(1005) # belle | pi,pi | AUT-0     | 16     | z1,z2,qT   |
+#conf['steps'][6]['datasets']['sia'].append(2008) # babar | pi,pi | AUL-0     | 16     | z1,z2      |
+#conf['steps'][6]['datasets']['sia'].append(2009) # babar | pi,pi | AUC-0     | 16     | z1,z2      |
+#
+#conf['steps'][6]['datasets']['sidis']=[]
+#conf['steps'][6]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
+#conf['steps'][6]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
+#conf['steps'][6]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
+#conf['steps'][6]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
+#conf['steps'][6]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
+#conf['steps'][6]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
+#conf['steps'][6]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
+#conf['steps'][6]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
+#conf['steps'][6]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
+#conf['steps'][6]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
+#conf['steps'][6]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
+#conf['steps'][6]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
+#conf['steps'][6]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
+#conf['steps'][6]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
+#conf['steps'][6]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
+#conf['steps'][6]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
+#conf['steps'][6]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
+#conf['steps'][6]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
+#
+##--(sia collins) + (sidis Collins) + (sidis AUT\sin\phi_S)
+#conf['steps'][7]={}
+#conf['steps'][7]['dep']=[6]
+#conf['steps'][7]['active distributions']=['pdf','ffpi','transversity','Htildepi','collinspi']
+#conf['steps'][7]['datasets']={}
+#
+#conf['steps'][7]['datasets']['sidis']=[]
+#conf['steps'][7]['datasets']['sidis'].append(9011)  #   COMPASS    proton  h+    z
+#conf['steps'][7]['datasets']['sidis'].append(9022)  #   COMPASS    proton  h-    z
+#conf['steps'][7]['datasets']['sidis'].append(9033)  #   COMPASS    proton  h+    x
+#conf['steps'][7]['datasets']['sidis'].append(9044)  #   COMPASS    proton  h-    x
+#
+#conf['steps'][7]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
+#conf['steps'][7]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
+#conf['steps'][7]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
+#conf['steps'][7]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
+#conf['steps'][7]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
+#conf['steps'][7]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
+#conf['steps'][7]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
+#conf['steps'][7]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
+#conf['steps'][7]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
+#conf['steps'][7]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
+#conf['steps'][7]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
+#conf['steps'][7]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
+#conf['steps'][7]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
+#conf['steps'][7]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
+#conf['steps'][7]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
+#conf['steps'][7]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
+#conf['steps'][7]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
+#conf['steps'][7]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
+#
+#conf['steps'][7]['datasets']['sia']=[]
+#conf['steps'][7]['datasets']['sia'].append(1000) # babar | pi,pi | AUL-0     | 9      | z1,z2,pT0  |
+#conf['steps'][7]['datasets']['sia'].append(1001) # babar | pi,pi | AUC-0     | 9      | z1,z2,pT0  |
+#conf['steps'][7]['datasets']['sia'].append(1002) # babar | pi,pi | AUC-0     | 36     | z1,z2      |
+#conf['steps'][7]['datasets']['sia'].append(1003) # babar | pi,pi | AUL-0     | 36     | z1,z2      |
+#conf['steps'][7]['datasets']['sia'].append(1004) # belle | pi,pi | AUT-0-CCP | 16     | z1,z2,qT   |
+#conf['steps'][7]['datasets']['sia'].append(1005) # belle | pi,pi | AUT-0     | 16     | z1,z2,qT   |
+#conf['steps'][7]['datasets']['sia'].append(2008) # babar | pi,pi | AUL-0     | 16     | z1,z2      |
+#conf['steps'][7]['datasets']['sia'].append(2009) # babar | pi,pi | AUC-0     | 16     | z1,z2      |
+#
+##--unpol + (sidis Sivers) + (sia Collins) + (sidis Collins) + (sidis AUT\sin\phi_S) + (pp A_N)
+#conf['steps'][8]={}
+#conf['steps'][8]['dep']=[3,7]
+#conf['steps'][8]['active distributions']=['pdf','ffpi','sivers','collinspi','transversity','Htildepi']
+#conf['steps'][8]['datasets']={}
+#
+#conf['steps'][8]['datasets']['sidis']=[]
+#conf['steps'][8]['datasets']['sidis'].append(2000) # proton   | pi+    | AUTsivers  | hermes  | PT
+#conf['steps'][8]['datasets']['sidis'].append(2001) # proton   | pi+    | AUTsivers  | hermes  | x
+#conf['steps'][8]['datasets']['sidis'].append(2002) # proton   | pi+    | AUTsivers  | hermes  | z
+#conf['steps'][8]['datasets']['sidis'].append(2003) # proton   | pi-    | AUTsivers  | hermes | PT
+#conf['steps'][8]['datasets']['sidis'].append(2004) # proton   | pi-    | AUTsivers  | hermes  | x
+#conf['steps'][8]['datasets']['sidis'].append(2005) # proton   | pi-    | AUTsivers  | hermes  | z
+#conf['steps'][8]['datasets']['sidis'].append(2006) # proton   | pi0    | AUTsivers  | hermes | PT
+#conf['steps'][8]['datasets']['sidis'].append(2007) # proton   | pi0    | AUTsivers  | hermes  | x
+#conf['steps'][8]['datasets']['sidis'].append(2008) # proton   | pi0    | AUTsivers  | hermes  | z
+#conf['steps'][8]['datasets']['sidis'].append(2020) # proton | h+    | AUTsivers  | compass   | PT
+#conf['steps'][8]['datasets']['sidis'].append(2021) # proton | h+    | AUTsivers  | compass    | x
+#conf['steps'][8]['datasets']['sidis'].append(2022) # proton | h+    | AUTsivers  | compass    | z
+#conf['steps'][8]['datasets']['sidis'].append(2023) # proton | h-    | AUTsivers  | compass   | PT
+#conf['steps'][8]['datasets']['sidis'].append(2024) # proton | h-    | AUTsivers  | compass    | x
+#conf['steps'][8]['datasets']['sidis'].append(2025) # proton | h-    | AUTsivers  | compass    | z
+#conf['steps'][8]['datasets']['sidis'].append(2026) # deuteron | pi+    | AUTsivers  | compass| PT
+#conf['steps'][8]['datasets']['sidis'].append(2027) # deuteron | pi+    | AUTsivers  | compass | x
+#conf['steps'][8]['datasets']['sidis'].append(2028) # deuteron | pi+    | AUTsivers  | compass | z
+#conf['steps'][8]['datasets']['sidis'].append(2029) # deuteron | pi-    | AUTsivers  | compass| PT
+#conf['steps'][8]['datasets']['sidis'].append(2030) # deuteron | pi-    | AUTsivers  | compass | x
+#conf['steps'][8]['datasets']['sidis'].append(2031) # deuteron | pi-    | AUTsivers  | compass | z
+#conf['steps'][8]['datasets']['sidis'].append(2046) # proton | h-    | AUTsivers  | compass   | PT
+#conf['steps'][8]['datasets']['sidis'].append(2047) # proton | h-    | AUTsivers  | compass    | x
+#conf['steps'][8]['datasets']['sidis'].append(2048) # proton | h-    | AUTsivers  | compass    | z
+#conf['steps'][8]['datasets']['sidis'].append(2049) # proton | h+    | AUTsivers  | compass   | PT
+#conf['steps'][8]['datasets']['sidis'].append(2050) # proton | h+    | AUTsivers  | compass    | x
+#conf['steps'][8]['datasets']['sidis'].append(2051) # proton | h+    | AUTsivers  | compass    | z
+#
+#conf['steps'][8]['datasets']['sidis'].append(4001)  #  compass  deuteron  pi+  pT
+#conf['steps'][8]['datasets']['sidis'].append(4000)  #  compass  deuteron  pi+   x
+#conf['steps'][8]['datasets']['sidis'].append(4002)  #  compass  deuteron  pi+   z
+#conf['steps'][8]['datasets']['sidis'].append(4004)  #  compass  deuteron  pi-  pT
+#conf['steps'][8]['datasets']['sidis'].append(4003)  #  compass  deuteron  pi-   x
+#conf['steps'][8]['datasets']['sidis'].append(4005)  #  compass  deuteron  pi-   z
+#conf['steps'][8]['datasets']['sidis'].append(3027)  #  compass    proton   pi+ pt
+#conf['steps'][8]['datasets']['sidis'].append(3025)  #  compass    proton  pi+   x
+#conf['steps'][8]['datasets']['sidis'].append(3010)  #  compass    proton  pi+   z
+#conf['steps'][8]['datasets']['sidis'].append(3012)  #  compass    proton  pi-  pt
+#conf['steps'][8]['datasets']['sidis'].append(3005)  #  compass    proton  pi-   x
+#conf['steps'][8]['datasets']['sidis'].append(3013)  #  compass    proton  pi-   z
+#conf['steps'][8]['datasets']['sidis'].append(3026)  #   HERMES    proton pi+   pt
+#conf['steps'][8]['datasets']['sidis'].append(3000)  #   HERMES    proton pi+    x
+#conf['steps'][8]['datasets']['sidis'].append(3003)  #   HERMES    proton pi+    z
+#conf['steps'][8]['datasets']['sidis'].append(3016)  #   HERMES    proton  pi-  pt
+#conf['steps'][8]['datasets']['sidis'].append(3004)  #   HERMES    proton  pi-   x
+#conf['steps'][8]['datasets']['sidis'].append(3018)  #   HERMES    proton  pi-   z
+#
+#conf['steps'][8]['datasets']['sidis'].append(9011)  #   COMPASS    proton  h+    z
+#conf['steps'][8]['datasets']['sidis'].append(9022)  #   COMPASS    proton  h-    z
+#conf['steps'][8]['datasets']['sidis'].append(9033)  #   COMPASS    proton  h+    x
+#conf['steps'][8]['datasets']['sidis'].append(9044)  #   COMPASS    proton  h-    x
+#
+#conf['steps'][8]['datasets']['sia']=[]
+#conf['steps'][8]['datasets']['sia'].append(1000) # babar | pi,pi | AUL-0     | 9      | z1,z2,pT0  |
+#conf['steps'][8]['datasets']['sia'].append(1001) # babar | pi,pi | AUC-0     | 9      | z1,z2,pT0  |
+#conf['steps'][8]['datasets']['sia'].append(1002) # babar | pi,pi | AUC-0     | 36     | z1,z2      |
+#conf['steps'][8]['datasets']['sia'].append(1003) # babar | pi,pi | AUL-0     | 36     | z1,z2      |
+#conf['steps'][8]['datasets']['sia'].append(1004) # belle | pi,pi | AUT-0-CCP | 16     | z1,z2,qT   |
+#conf['steps'][8]['datasets']['sia'].append(1005) # belle | pi,pi | AUT-0     | 16     | z1,z2,qT   |
+#conf['steps'][8]['datasets']['sia'].append(2008) # babar | pi,pi | AUL-0     | 16     | z1,z2      |
+#conf['steps'][8]['datasets']['sia'].append(2009) # babar | pi,pi | AUC-0     | 16     | z1,z2      |
+#
+#conf['steps'][8]['datasets']['AN']=[]
+#conf['steps'][8]['datasets']['AN'].append(1000) # BRAHMS pim 2.3
+#conf['steps'][8]['datasets']['AN'].append(1001) # BRAHMS   pim 4
+#conf['steps'][8]['datasets']['AN'].append(1002) # BRAHMS pip 2.3
+#conf['steps'][8]['datasets']['AN'].append(1003) # BRAHMS   pip 4
+#conf['steps'][8]['datasets']['AN'].append(2000) # STAR    piz 04
+#conf['steps'][8]['datasets']['AN'].append(2001) # STAR   piz 3.3
+#conf['steps'][8]['datasets']['AN'].append(2002) # STAR  piz 3.68
+#conf['steps'][8]['datasets']['AN'].append(2003) # STAR   piz 3.7
