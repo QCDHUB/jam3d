@@ -15,9 +15,16 @@ from obslib.idis.stfuncs import STFUNCS as DIS_STFUNCS
 
 class RESIDUALS(_RESIDUALS):
 
-    def __init__(self):
-        self.reaction = 'sidis'
-        self.tabs = conf['sidis tabs']
+    def __init__(self,react='sidis'):
+        if react == 'sidis':
+            self.reaction = 'sidis'
+            self.tabs = conf['sidis tabs']
+        elif react == 'sidisEIC':
+            self.reaction = 'sidisEIC'
+            self.tabs = conf['sidisEIC tabs']
+        elif react == 'sidisSoLID':
+            self.reaction = 'sidisSoLID'
+            self.tabs = conf['sidisSoLID tabs']
         self.dis_stfuncs = DIS_STFUNCS()
         self.setup()
 
@@ -52,6 +59,9 @@ class RESIDUALS(_RESIDUALS):
 
         elif obs == 'M':
 
+            if had=='h+': had='pi+'
+            if had=='h-': had='pi-'
+
             FUU = upol.get_FUU(x,z,Q2,pT,tar,had)
             if F2==None: F2 = self.dis_stfuncs.get_F2(x, Q2,tar)
             thy = FUU / F2
@@ -82,6 +92,9 @@ class RESIDUALS(_RESIDUALS):
             thy = coeff * FUT / FUU
 
         elif obs == 'AUUcos2':
+
+            if had=='h+': had='pi+'
+            if had=='h-': had='pi-'
 
             ''' The data from JLab and HERMES do not require any integrations,
                 but require a y-based coefficient. The COMPASS data requires an
