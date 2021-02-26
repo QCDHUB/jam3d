@@ -49,6 +49,8 @@ class RESMAN:
         if datasets:
 
             if 'sidis'   in conf['datasets']: self.setup_sidis()
+            if 'sidisEIC'   in conf['datasets']: self.setup_sidisEIC()
+            if 'sidisSoLID' in conf['datasets']: self.setup_sidisSoLID()
             if 'sia'     in conf['datasets']: self.setup_sia()
             if 'moments' in conf['datasets']: self.setup_moments()
             if 'AN'      in conf['datasets']: self.setup_AN()
@@ -128,6 +130,14 @@ class RESMAN:
     def setup_sidis(self):
         conf['sidis tabs']    = obslib.sidis.reader.READER().load_data_sets('sidis')
         self.sidisres = obslib.sidis.residuals.RESIDUALS()
+
+    def setup_sidisEIC(self):
+        conf['sidisEIC tabs']  = obslib.sidis.reader.READER().load_data_sets('sidisEIC')
+        self.sidisEICres = obslib.sidis.residuals.RESIDUALS()
+
+    def setup_sidisSoLID(self):
+        conf['sidisSoLID tabs']  = obslib.sidis.reader.READER().load_data_sets('sidisSoLID')
+        self.sidisSoLIDres = obslib.sidis.residuals.RESIDUALS()
 
     def setup_sia(self):
         conf['sia tabs']    = obslib.sia.reader.READER().load_data_sets('sia')
@@ -225,6 +235,8 @@ class RESMAN:
     def get_requests(self):
         container=[[] for _ in range(self.nworkers)]
         if 'sidis'  in conf['datasets']:  self.distribute_requests(container,self.sidisres.requests)
+        if 'sidisEIC'  in conf['datasets']:  self.distribute_requests(container,self.sidisEICres.requests)
+        if 'sidisSoLID'  in conf['datasets']:  self.distribute_requests(container,self.sidisSoLIDres.requests)
         if 'sia'    in conf['datasets']:  self.distribute_requests(container,self.siares.requests)
         if 'AN'     in conf['datasets']:  self.distribute_requests(container,self.ANres.requests)
         if 'ANgam'  in conf['datasets']:  self.distribute_requests(container,self.ANgamres.requests)
@@ -238,6 +250,8 @@ class RESMAN:
     def task(self,request):
         for i in range(len(request)):
             if  request[i]['reaction']=='sidis' :  self.sidisres.process_request(request[i])
+            if  request[i]['reaction']=='sidisEIC' :  self.sidisEICres.process_request(request[i])
+            if  request[i]['reaction']=='sidisSoLID' :  self.sidisSoLIDres.process_request(request[i])
             if  request[i]['reaction']=='sia'   :  self.siares.process_request(request[i])
             if  request[i]['reaction']=='AN'    :  self.ANres.process_request(request[i])
             if  request[i]['reaction']=='ANgam' :  self.ANgamres.process_request(request[i])
@@ -258,6 +272,8 @@ class RESMAN:
         for chunk in results:
             for request in chunk:
                 if request['reaction']=='sidis'  : self.sidisres.update_tabs_external(request)
+                if request['reaction']=='sidisEIC'  : self.sidisEICres.update_tabs_external(request)
+                if request['reaction']=='sidisSoLID'  : self.sidisSoLIDres.update_tabs_external(request)
                 if request['reaction']=='sia'    : self.siares.update_tabs_external(request)
                 if request['reaction']=='AN'     : self.ANres.update_tabs_external(request)
                 if request['reaction']=='ANgam'  : self.ANgamres.update_tabs_external(request)
@@ -271,6 +287,16 @@ class RESMAN:
         res,rres,nres=[],[],[]
         if 'sidis' in conf['datasets']:
             out=self.sidisres.get_residuals(calc=False)
+            res=np.append(res,out[0])
+            rres=np.append(rres,out[1])
+            nres=np.append(nres,out[2])
+        if 'sidisEIC' in conf['datasets']:
+            out=self.sidisEICres.get_residuals(calc=False)
+            res=np.append(res,out[0])
+            rres=np.append(rres,out[1])
+            nres=np.append(nres,out[2])
+        if 'sidisSoLID' in conf['datasets']:
+            out=self.sidisSoLIDres.get_residuals(calc=False)
             res=np.append(res,out[0])
             rres=np.append(rres,out[1])
             nres=np.append(nres,out[2])
@@ -323,6 +349,12 @@ class RESMAN:
         if 'sidis' in conf['datasets']:
             out=self.sidisres.get_residuals(calc=False)
             reaction.extend(['sidis' for _ in out[0]])
+        if 'sidisEIC' in conf['datasets']:
+            out=self.sidisEICres.get_residuals(calc=False)
+            reaction.extend(['sidisEIC' for _ in out[0]])
+        if 'sidisSoLID' in conf['datasets']:
+            out=self.sidisSoLIDres.get_residuals(calc=False)
+            reaction.extend(['sidisSoLID' for _ in out[0]])
         if 'sia' in conf['datasets']:
             out=self.siares.get_residuals(calc=False)
             reaction.extend(['sia' for _ in out[0]])
@@ -352,6 +384,8 @@ class RESMAN:
     def gen_report(self,verb=0,level=0):
         L=[]
         if 'sidis'   in conf['datasets']: L.extend(self.sidisres.gen_report(verb,level))
+        if 'sidisEIC'   in conf['datasets']: L.extend(self.sidisEICres.gen_report(verb,level))
+        if 'sidisSoLID'   in conf['datasets']: L.extend(self.sidisSoLIDres.gen_report(verb,level))
         if 'sia'     in conf['datasets']: L.extend(self.siares.gen_report(verb,level))
         if 'AN'      in conf['datasets']: L.extend(self.ANres.gen_report(verb,level))
         if 'ANgam'   in conf['datasets']: L.extend(self.ANgamres.gen_report(verb,level))
@@ -365,6 +399,8 @@ class RESMAN:
     def get_chi2(self):
         data={}
         if 'sidis'   in conf['datasets']: data.update(self.sidisres.get_chi2())
+        if 'sidisEIC'   in conf['datasets']: data.update(self.sidisEICres.get_chi2())
+        if 'sidisSoLID'   in conf['datasets']: data.update(self.sidisSoLIDres.get_chi2())
         if 'sia'     in conf['datasets']: data.update(self.siares.get_chi2())
         if 'AN'      in conf['datasets']: data.update(self.ANres.get_chi2())
         if 'ANgam'   in conf['datasets']: data.update(self.ANgamres.get_chi2())
