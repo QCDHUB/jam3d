@@ -35,8 +35,8 @@ def _get_FUU(x,z,Q2,pT,tar,had,F,D,w_tar,w_had):
         return np.sum(e2*K*F*D*gauss)
 
     elif had.endswith('-'):
+        D=conf['aux'].charge_conj(D)
         if pT != None:
-            D=conf['aux'].charge_conj(D)
             w_had=conf['aux'].charge_conj(w_had)
             wq = z**2 * np.abs(w_tar) + np.abs(w_had)
             gauss = np.exp(-pT**2 / wq) / (np.pi * wq)
@@ -70,26 +70,45 @@ def get_FUU(x,z,Q2,pT,tar,had):
     F = conf['pdf'].get_C(x, Q2)
     if   'pi' in had:  D = conf['ffpi'].get_C(z, Q2)
     elif  'k' in had:  D = conf['ffk'].get_C(z, Q2)
-    elif 'h' in had:   D = conf['ffh'].get_C(z,Q2) #use pions for now
-    F[0],D[0]=0,0  # set glue to zero
+    elif 'h' in had: D = conf['ffpi'].get_C(z, Q2) + conf['ffk'].get_C(z, Q2)  
+        #Dpi = conf['ffpi'].get_C(z,Q2)
+        #Dk  = conf['ffk'].get_C(z,Q2)
+    F[0],D[0]=0,0
+    #if 'h' not in had: F[0],D[0]=0,0  # set glue to zero
+    #elif 'h' in had: F[0],Dpi[0],Dk[0]=0,0,0
 
     # get widths (proton and positive hadrons)
     w_tar=conf['pdf'].get_widths(Q2)
     if   'pi' in had: w_had=np.abs(conf['ffpi'].get_widths(Q2))
     elif 'k'  in had: w_had=np.abs(conf['ffk'].get_widths(Q2))
-    elif   'h' in had: w_had=np.abs(conf['ffh'].get_widths(Q2)) #use pions for now
-
+    elif   'h' in had: w_had=np.abs(conf['ffh'].get_widths(Q2)) 
+        #w_hadpi=np.abs(conf['ffpi'].get_widths(Q2))
+        #w_hadk=np.abs(conf['ffk'].get_widths(Q2))
+    
     # build structure function
 
     if tar=='p':
 
         return _get_FUU(x,z,Q2,pT,tar,had,F,D,w_tar,w_had)
 
+        #if 'h' not in had: return _get_FUU(x,z,Q2,pT,tar,had,F,D,w_tar,w_had)
+        #elif 'h+' in had: 
+        #    return _get_FUU(x,z,Q2,pT,tar,'pi+',F,Dpi,w_tar,w_hadpi) + _get_FUU(x,z,Q2,pT,tar,'k+',F,Dk,w_tar,w_hadk)
+        #elif 'h-' in had:
+        #    return _get_FUU(x,z,Q2,pT,tar,'pi-',F,Dpi,w_tar,w_hadpi) + _get_FUU(x,z,Q2,pT,tar,'k-',F,Dk,w_tar,w_hadk)
+
     elif tar=='n':
 
         F=conf['aux'].p2n(F)
         w_tar=conf['aux'].p2n(w_tar)
-        return  _get_FUU(x,z,Q2,pT,tar,had,F,D,w_tar,w_had)
+        
+        return _get_FUU(x,z,Q2,pT,tar,had,F,D,w_tar,w_had)
+
+        #if 'h' not in had: return _get_FUU(x,z,Q2,pT,tar,had,F,D,w_tar,w_had)
+        #elif 'h+' in had: 
+        #    return _get_FUU(x,z,Q2,pT,tar,'pi+',F,Dpi,w_tar,w_hadpi) + _get_FUU(x,z,Q2,pT,tar,'k+',F,Dk,w_tar,w_hadk)
+        #elif 'h-' in had:
+        #    return _get_FUU(x,z,Q2,pT,tar,'pi-',F,Dpi,w_tar,w_hadpi) + _get_FUU(x,z,Q2,pT,tar,'k-',F,Dk,w_tar,w_hadk)
 
     elif tar=='d':
 

@@ -381,7 +381,7 @@ class MAXLIKE:
 
 if __name__=='__main__':
 
-    MAXLIKE('input_evo.py',2,msrhook='mv <<fname>> step1',prior=None,seed=12345).run()
+    MAXLIKE('input_dglap.py',2,msrhook='mv <<fname>> step1',prior=None,seed=12345).run()
     #MAXLIKE('input_evo.py',2,msrhook='mv <<fname>> step2',prior='step1/Y2RM020ZW0NB.msr',seed=12345).run()
     #MAXLIKE('input_evo.py',2,msrhook='mv <<fname>> step3',prior='step2/Y2RM020ZW0NB.msr',seed=12345).run()
     #MAXLIKE('input_evo.py',2,msrhook='mv <<fname>> step4',prior='step3/Y2RM020ZW0NB.msr',seed=12345).run()

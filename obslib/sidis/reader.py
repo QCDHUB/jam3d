@@ -48,8 +48,8 @@ class READER(_READER):
         return tab
 
     def modify_table(self, tab, k):
-        tab = self.get_W2(tab, k)
-        tab = self.get_rap(tab, k)
+        #tab = self.get_W2(tab, k)
+        #tab = self.get_rap(tab, k)
         tab = self.apply_cuts(tab, k)
         return tab
 

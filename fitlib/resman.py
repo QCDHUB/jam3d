@@ -133,11 +133,11 @@ class RESMAN:
 
     def setup_sidisEIC(self):
         conf['sidisEIC tabs']  = obslib.sidis.reader.READER().load_data_sets('sidisEIC')
-        self.sidisEICres = obslib.sidis.residuals.RESIDUALS()
+        self.sidisEICres = obslib.sidis.residuals.RESIDUALS('sidisEIC')
 
     def setup_sidisSoLID(self):
         conf['sidisSoLID tabs']  = obslib.sidis.reader.READER().load_data_sets('sidisSoLID')
-        self.sidisSoLIDres = obslib.sidis.residuals.RESIDUALS()
+        self.sidisSoLIDres = obslib.sidis.residuals.RESIDUALS('sidisSoLID')
 
     def setup_sia(self):
         conf['sia tabs']    = obslib.sia.reader.READER().load_data_sets('sia')

@@ -13,7 +13,7 @@ from qcdlib.aux import AUX
 from qcdlib.dglap import DGLAP
 from qcdlib.kernels import KERNELS
 from qcdlib.mellin import MELLIN
-from scipy.integrate import quad
+from scipy.integrate import fixed_quad
 
 
 class PDF(CORE):
@@ -314,8 +314,10 @@ class PDF(CORE):
     def get_mom(self,Q2): #used for calculating the tensor charge for lattice data
         mom_arr=[]
         mom_arr.append(0.)
-        for i in range(1,7):
-            mom_arr.append(quad(lambda x: self.get_C(x,Q2)[i], 0., 1.)[0])
+        for i in [1,2,3,4,5,6]:
+            #mom_arr.append(quad(lambda x: self.get_C(x,Q2)[i], 0., 1.)[0])
+            h1=np.vectorize(lambda x: self.get_C(x,Q2)[i])
+            mom_arr.append(fixed_quad(h1, 0, 1, n=25)[0])
 
         return np.array(mom_arr)
 
