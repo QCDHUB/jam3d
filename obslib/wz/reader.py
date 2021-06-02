@@ -28,4 +28,4 @@ if __name__ == "__main__":
     conf['datasets']['wz']['xlsx'][2002] = '../../database/wz/expdata/2002.xlsx'
 
     TAB = READER().load_data_sets('wz')
-    print TAB
+    print(TAB)

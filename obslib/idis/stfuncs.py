@@ -110,9 +110,9 @@ if __name__ == '__main__':
 
     x = 0.5
     Q2 = 1000.
-    print stfuncs.get_F2(x,Q2,'p',method='gauss')
-    print stfuncs.get_F2(x,Q2,'n',method='gauss')
-    print stfuncs.get_F2(x,Q2,'d',method='gauss')
+    print(stfuncs.get_F2(x,Q2,'p',method='gauss'))
+    print(stfuncs.get_F2(x,Q2,'n',method='gauss'))
+    print(stfuncs.get_F2(x,Q2,'d',method='gauss'))
 
 
 

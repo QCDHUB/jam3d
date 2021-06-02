@@ -141,7 +141,7 @@ class RESIDUALS(_RESIDUALS):
             return L
         elif verb == 1:
             for l in L:
-                print l
+                print(l)
             return L
 
 if __name__ == '__main__':
@@ -171,6 +171,6 @@ if __name__ == '__main__':
     conf['SB tabs'] = READER().load_data_sets('SB')
 
     conf['residuals']= RESIDUALS()
-    print conf['residuals'].get_residuals()
+    print(conf['residuals'].get_residuals())
 
     #conf['residuals'].gen_report(verb=1, level=1)

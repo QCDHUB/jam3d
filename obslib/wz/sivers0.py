@@ -145,11 +145,11 @@ def _get_FUTWZ(xA,xB,qT,hadronA,hadronB,boson,TransversePolarizationA,Transverse
                 res += K*(conf['aux'].cvsz**2 + conf['aux'].casz**2) * sbarA * sB * np.exp(-qT**2 / wq) / (np.pi * wq)  
         
             else:
-                print 'ERR: boson = %s' % (boson)
+                print('ERR: boson = %s' % (boson))
                 sys.exit()
        
     elif TransversePolarizationB: # hadronB is transversely polarised   
-            print 'TransversePolarizationB not implemented yet' 
+            print('TransversePolarizationB not implemented yet')
             sys.exit()
     
     else:     
@@ -187,7 +187,7 @@ def get_FUTWZ(xA,xB,qT,hadronA,hadronB,boson,TransversePolarizationA,TransverseP
             PDFA = (-1.)*conf['aux'].p2n(conf['sivers'].get_C(xA, Q2)) # DY Sivers is opposite to SIDIS
             w_hadronA=conf['aux'].p2n(conf['sivers'].get_widths(Q2))
         else:
-            print 'ERR: Sivers hadronA = %s is not implemented' % (hadronA)
+            print('ERR: Sivers hadronA = %s is not implemented' % (hadronA))
             sys.exit()
       
         
@@ -202,11 +202,11 @@ def get_FUTWZ(xA,xB,qT,hadronA,hadronB,boson,TransversePolarizationA,TransverseP
             PDFB = conf['pdfpi-'].get_C(xB, Q2)
             w_hadronB = conf['pdfpi-'].get_widths(Q2)
         else:
-            print 'ERR: hadronB = %s is not implemented' % (hadronB)
+            print('ERR: hadronB = %s is not implemented' % (hadronB))
             sys.exit()
 
     elif TransversePolarizationB:
-            print 'TransversePolarizationB not implemented yet' 
+            print('TransversePolarizationB not implemented yet')
             sys.exit()
                 
 
@@ -261,12 +261,12 @@ if __name__ == '__main__':
     TransversePolarizationB = False
 
  
-    print get_FUTWZ(xA,xB,qT,hadronA,hadronB,'W+',TransversePolarizationA,TransversePolarizationB)
+    print(get_FUTWZ(xA,xB,qT,hadronA,hadronB,'W+',TransversePolarizationA,TransversePolarizationB))
     
     energy = 500.**2
     y = 0.5
     
-    print get_FUTWZY(y,qT,energy,hadronA,hadronB,'W+',TransversePolarizationA,TransversePolarizationB)
+    print(get_FUTWZY(y,qT,energy,hadronA,hadronB,'W+',TransversePolarizationA,TransversePolarizationB))
 
 
 

@@ -26,4 +26,4 @@ if __name__ == "__main__":
     # lattice gT(u-d)
     conf['datasets']['lattice']['xlsx'][1000] = '../../database/lattice/1000.xlsx'
     TAB = READER(conf).load_data_sets('lattice')
-    print TAB
+    print(TAB)

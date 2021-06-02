@@ -690,7 +690,7 @@ if __name__ == '__main__':
                mode='gauss', nx=10, nz=10)
 
     AN = num / den
-    print AN
+    print(AN)
 
   test()
 

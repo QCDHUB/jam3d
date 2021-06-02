@@ -76,7 +76,7 @@ class PARMAN:
                     pmin=conf['params'][k][kk]['min']
                     pmax=conf['params'][k][kk]['max']
                     if  p<pmin or p>pmax:
-                        print k,kk, p,pmin,pmax
+                        print(k,kk, p,pmin,pmax)
                         flag=False
 
         if  'datasets' in conf:
@@ -88,7 +88,7 @@ class PARMAN:
                         pmax=conf['datasets'][k]['norm'][kk]['max']
                         if p<pmin or p>pmax:
                           flag=False
-                          print k,kk, p,pmin,pmax
+                          print(k,kk, p,pmin,pmax)
 
         return flag
 

@@ -306,9 +306,9 @@ if __name__ == '__main__':
   xF = 0.3
   Q2 = 2.0
 
-  print get_AN(xF, pT, rs, tar, had)
-  print get_ANfrag(xF, pT, rs, tar, had)
-  print get_ANQS(xF, pT, rs, tar, had)
+  print(get_AN(xF, pT, rs, tar, had))
+  print(get_ANfrag(xF, pT, rs, tar, had))
+  print(get_ANQS(xF, pT, rs, tar, had))
 
   #CV=Class_Variables()
   #x=np.linspace(-1,1,1000)

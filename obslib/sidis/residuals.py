@@ -217,7 +217,7 @@ class RESIDUALS(_RESIDUALS):
             thy = coeff * FUTsinphiS / FUU
 
         else:
-            print 'ERR: exp=%d obs=%s and target=%s not implemented' % (k, obs, tar)
+            print('ERR: exp=%d obs=%s and target=%s not implemented' % (k, obs, tar))
             sys.exit()
 
         return thy
@@ -328,7 +328,7 @@ class RESIDUALS(_RESIDUALS):
             return L
         elif verb == 1:
             for l in L:
-                print l
+                print(l)
             return L
 
 if __name__ == '__main__':
@@ -469,6 +469,6 @@ if __name__ == '__main__':
 
     conf['residuals'] = RESIDUALS()
 
-    print conf['residuals'].get_residuals()
+    print(conf['residuals'].get_residuals())
 
     #conf['residuals'].gen_report(verb=1, level=1)

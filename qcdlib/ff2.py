@@ -308,4 +308,4 @@ if __name__ == '__main__':
 
     x = 0.15
     Q2 = 200.4
-    print conf['d1'].get_C(x, Q2)
+    print(conf['d1'].get_C(x, Q2))

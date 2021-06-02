@@ -3,8 +3,8 @@ import sys
 import os
 import numpy as np
 import pandas as pd
-from tools import isnumeric
-from config import conf
+from tools.tools import isnumeric
+from tools.config import conf
 
 
 class _READER:

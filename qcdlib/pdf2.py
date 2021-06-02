@@ -336,4 +336,4 @@ if __name__ == '__main__':
 
     x=0.3
     Q2=125.0
-    print conf['pdf'].get_mom(Q2)
+    print(conf['pdf'].get_mom(Q2))

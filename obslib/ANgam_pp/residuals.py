@@ -7,7 +7,7 @@ from scipy.integrate import quad
 import pandas as pd
 import time
 from tools.residuals import _RESIDUALS
-from reader import READER
+from obslib.ANgam_pp.reader import READER
 from obslib.ANgam_pp import AN_theory0 as AN_theory
 from qcdlib.aux import AUX
 from qcdlib.alphaS import ALPHAS
@@ -127,5 +127,5 @@ class RESIDUALS(_RESIDUALS):
             return L
         elif verb == 1:
             for l in L:
-                print l
+                print(l)
             return L

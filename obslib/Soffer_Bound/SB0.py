@@ -18,4 +18,4 @@ if __name__ == '__main__':
     x=0.3
     Q2=2.0
 
-    print get_h1(x,Q2,'p')
+    print(get_h1(x,Q2,'p'))

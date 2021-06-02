@@ -66,7 +66,7 @@ def get_FU1(xA,xB,Q2,qT,hadronA,hadronB):
         PDFA = conf['pdfpi-'].get_C(xA, Q2)
         w_hadronA = conf['pdfpi-'].get_widths(Q2)
     else:
-        print 'ERR: hadronA = %s is not implemented' % (hadronA)
+        print('ERR: hadronA = %s is not implemented' % (hadronA))
         sys.exit()
       
         
@@ -81,7 +81,7 @@ def get_FU1(xA,xB,Q2,qT,hadronA,hadronB):
         PDFB = conf['pdfpi-'].get_C(xB, Q2)
         w_hadronB = conf['pdfpi-'].get_widths(Q2)
     else:
-        print 'ERR: hadronB = %s is not implemented' % (hadronB)
+        print('ERR: hadronB = %s is not implemented' % (hadronB))
         sys.exit()
 
                 
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     hadronA = 'pi-'
     hadronB = 'p'
  
-    print get_FU1(xA,xB,Q2,qT,hadronA,hadronB)
+    print(get_FU1(xA,xB,Q2,qT,hadronA,hadronB))
 
 
 

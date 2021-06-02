@@ -7,7 +7,7 @@ from scipy.integrate import quad
 import pandas as pd
 import time
 from tools.residuals import _RESIDUALS
-from reader import READER
+from obslib.moments.reader import READER
 from qcdlib.aux import AUX
 from qcdlib.alphaS import ALPHAS
 from obslib.idis.stfuncs import STFUNCS as DIS_STFUNCS
@@ -120,7 +120,7 @@ class RESIDUALS(_RESIDUALS):
         L.append(self.reaction)
 
         for k in self.tabs:
-            print k, len(self.tabs[k]['value'])
+            print(k, len(self.tabs[k]['value']))
             if self.tabs[k]['value'].size == 0:
                 continue
             res = self._get_residuals(k)
@@ -166,4 +166,4 @@ class RESIDUALS(_RESIDUALS):
             return L
         elif verb == 1:
             for l in L:
-                print l
+                print(l)

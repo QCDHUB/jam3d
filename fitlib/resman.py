@@ -413,17 +413,17 @@ class RESMAN:
 
     def test(self,ntasks=10):
         #--loop over states
-        print '='*20
+        print('='*20)
         t=time.time()
         for _ in range(ntasks):
             par=self.parman.par
             par*=(1+0.01*np.random.randn(par.size))
             res,rres,nres=self.get_residuals(par)
             chi2=np.sum(res**2)
-            print '(%d/%d) chi2=%f'%(_,ntasks,chi2)
-        print '='*20
+            print('(%d/%d) chi2=%f'%(_,ntasks,chi2))
+        print('='*20)
         elapsed_time=time.time()-t
-        print 'elapsed time :%f'%elapsed_time
+        print('elapsed time :%f'%elapsed_time)
         return elapsed_time
 
     def shutdown(self):
