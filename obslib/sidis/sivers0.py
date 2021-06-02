@@ -64,7 +64,7 @@ def get_FUT(x,z,Q2,pT,tar,had):
     # get collinear parts (proton and positive hadrons)
     F = conf['sivers'].get_C(x, Q2)
     if   'pi' in had:  D = conf['ffpi'].get_C(z, Q2)
-    elif 'h' in had:  D = conf['ffh'].get_C(z, Q2)
+    elif 'h' in had:  D = conf['ffpi'].get_C(z, Q2) + conf['ffk'].get_C(z, Q2)
     elif  'k' in had:  D = conf['ffk'].get_C(z, Q2)
     F[0],D[0]=0,0  # set glue to zero
 

@@ -99,7 +99,7 @@ class STFUNCS:
             LO = self.qplus(self.get_PDFs(x))
             #integrand=lambda z:self.integrand(x,z,Q2)
             #NLO=self.integrator(integrand,x,1,method,n=n)
-            self.storage[(x,Q2,hadron)] = x * LO#(LO +alpi*NLO)
+            self.storage[(x,Q2,hadron)] = x * LO #(LO +alpi*NLO)
         return self.storage[(x,Q2,hadron)]
 
 

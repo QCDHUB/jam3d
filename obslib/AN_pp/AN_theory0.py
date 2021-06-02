@@ -71,6 +71,7 @@ def get_H(z, Q2, had): # -2*z*H_1^{\perp(1)}(z)+\tilde{H}(z)
       return -2. * z * conf['collinsk'].get_C(z,Q2) + conf['Htildek'].get_C(z, Q2)
 
 def get_f1Tp(x, Q2): # (f_1T^{\perp(1)}(x) - x*df_1T^{\perp(1)}(x)/dx)
+    
     return conf['sivers'].get_C(x, Q2) - x * conf['dsivers'].get_C(x, Q2)
 
 def get_mandelstam(s, t, u):
@@ -614,8 +615,8 @@ def get_sig(xF, pT, rs, tar, had, mode='gauss', nx=10, nz=10):
     else:
         if mode == 'gauss':
             dsigdzdx = np.vectorize(lambda x, z: get_dsig(x, z, xF, pT, rs, tar, had))
-            dsigdz = np.vectorize(lambda z: fixed_quad(lambda x: dsigdzdx(x, z), xmin(z), 1, n=nx)[0])
-            sig = fixed_quad(dsigdz, zmin, 1, n=nz)[0]
+            dsigdz = np.vectorize(lambda z: fixed_quad(lambda x: dsigdzdx(x, z), xmin(z), 1., n=nx)[0])
+            sig = fixed_quad(dsigdz, zmin, 1., n=nz)[0]
         elif mode == 'quad':
             sig = dblquad(lambda x, z: get_dsig(x, z, xF, pT, rs, tar, had), zmin, 1., xmin, lambda x: 1.)[0]
     return sig
@@ -643,8 +644,8 @@ def get_sigST(xF, pT, rs, tar, had, mode='gauss', nx=10, nz=10):
     else:
         if mode == 'gauss':
             dsigdzdx = np.vectorize(lambda x, z: get_dsigST(x, z, xF, pT, rs, tar, had))
-            dsigdz = np.vectorize(lambda z: fixed_quad(lambda x: dsigdzdx(x, z), xmin(z), 1, n=nx)[0])
-            sig = fixed_quad(dsigdz, zmin, 1, n=nz)[0]
+            dsigdz = np.vectorize(lambda z: fixed_quad(lambda x: dsigdzdx(x, z), xmin(z), 1., n=nx)[0])
+            sig = fixed_quad(dsigdz, zmin, 1., n=nz)[0]
         elif mode == 'quad':
             sig = dblquad(lambda x, z: get_dsigST(x, z, xF, pT, rs, tar, had), zmin, 1., xmin, lambda x: 1.)[0]
 
