@@ -22,8 +22,6 @@
 
 
 
-[link][3000,4001]= Star pseudo-data 2020 sent by Elke
-
 
 
 
