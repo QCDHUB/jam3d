@@ -6,9 +6,12 @@ import zmq
 import multiprocessing
 import numpy as np
 try:
-    import cPickle
+    import dill as pickle
 except:
-    import _pickle as cPickle
+    try:
+        import cPickle
+    except:
+        import _pickle as cPickle
 
 class PARALLEL:
 
@@ -34,7 +37,8 @@ class PARALLEL:
 
     def send(self,sock,data):
         #sock.send_json(data)
-        sock.send(pickle.dumps(data,pickle.HIGHEST_PROTOCOL))
+        #sock.send(pickle.dumps(data,pickle.HIGHEST_PROTOCOL))
+        sock.send(pickle.dumps(data))
 
     def recv(self,sock):
         #return sock.recv_json()
