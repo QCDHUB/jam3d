@@ -10,6 +10,7 @@
 | 2001  | [link][2001] | STAR       |  pi0  | AN-rap3.3        | 14     | xF,pT      |
 | 2002  | [link][2002] | STAR       |  pi0  | AN-rap3.68       | 7      | xF,pT      |
 | 2003  | [link][2003] | STAR       |  pi0  | AN-rap3.7        | 14     | xF,pT      |
+| 2004  | [link][2004] | STAR       |  pi0  | AN-rap3.7        | 26     | pT         |
 | 3000  | [link][3000] | STAR       |  pi0  | AN               | 9      | xF,pT, 200 GeV    |
 | 3001  | [link][3001] | STAR       |  pi0  | AN               | 7      | xF,pT, 500 GeV    |
 | 3002  | [link][3002] | STAR       |  pi0  | AN               | 13     | xF,pT, 200 GeV    |
