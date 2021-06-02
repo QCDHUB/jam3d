@@ -10,18 +10,18 @@
 | 2001  | [link][2001] | STAR       |  pi0  | AN-rap3.3        | 14     | xF,pT      |
 | 2002  | [link][2002] | STAR       |  pi0  | AN-rap3.68       | 7      | xF,pT      |
 | 2003  | [link][2003] | STAR       |  pi0  | AN-rap3.7        | 14     | xF,pT      |
-| 3000  | [link][3000] | STAR       |  pi0  | AN               | 9      | xF,pT , 200 GeV     |
-| 3001  | [link][3000] | STAR       |  pi0  | AN               | 7      | xF,pT, 500 GeV      |
-| 3002  | [link][3000] | STAR       |  pi0  | AN               | 13     | xF,pT, 200 GeV    |
-| 3003  | [link][3000] | STAR       |  pi0  | AN               | 10     | xF,pT, 500 GeV      |
-| 4000  | [link][4000] | STAR       |  EM jet  | AN               | 9      | xF,pT, 200 GeV      |
-| 4001  | [link][4000] | STAR       |  EM jet  | AN               | 10      | xF,pT, 500 GeV     |
+| 3000  | [link][3000] | STAR       |  pi0  | AN               | 9      | xF,pT, 200 GeV    |
+| 3001  | [link][3001] | STAR       |  pi0  | AN               | 7      | xF,pT, 500 GeV    |
+| 3002  | [link][3002] | STAR       |  pi0  | AN               | 13     | xF,pT, 200 GeV    |
+| 3003  | [link][3003] | STAR       |  pi0  | AN               | 9      | xF,pT, 500 GeV    |
+| 4000  | [link][4000] | STAR       |  EM jet  | AN            | 9      | xF,pT, 200 GeV    |
+| 4001  | [link][4001] | STAR       |  EM jet  | AN            | 10     | xF,pT, 500 GeV    |
 
 
 
 
 
-[link][3000,4000]= Star pseudo-data 2020 sent by Elke
+[link][3000,4001]= Star pseudo-data 2020 sent by Elke
 
 
 
