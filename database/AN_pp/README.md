@@ -16,7 +16,9 @@
 | 3002  | [link][3002] | STAR       |  pi0  | AN               | 13     | xF,pT, 200 GeV    |
 | 3003  | [link][3003] | STAR       |  pi0  | AN               | 9      | xF,pT, 500 GeV    |
 | 4000  | [link][4000] | STAR       |  EM jet  | AN            | 9      | xF,pT, 200 GeV    |
-| 4001  | [link][4001] | STAR       |  EM jet  | AN            | 10     | xF,pT, 500 GeV    |
+| 4001  | [link][4001] | STAR       |  EM jet  | AN            | 9      | xF,pT, 500 GeV    |
+| 4002  | [link][4002] | STAR       |  EM jet  | AN            | 9      | xF,pT, 200 GeV    |
+| 4003  | [link][4003] | STAR       |  EM jet  | AN            | 9      | xF,pT, 500 GeV    |
 
 
 
