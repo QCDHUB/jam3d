@@ -76,7 +76,8 @@ class RESIDUALS(_RESIDUALS):
             elif col == 'COMPASS': coeff = -1 # compass is sin(phi_s+phi_h+pi)
 
             # add depolarization factor
-            if col == 'HERMES': coeff *= 2 * (1 - y) / (1 + (1 - y)**2)
+            #2020 HERMES data removes this y-dependent factor
+	    #if col == 'HERMES': coeff *= 2 * (1 - y) / (1 + (1 - y)**2)
 
             FUT = collins.get_FUT(x,z,Q2,pT,tar,had)
             FUU = upol.get_FUU(x,z,Q2,pT,tar,had)
