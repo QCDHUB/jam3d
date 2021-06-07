@@ -152,6 +152,24 @@
 | 3019  | [link][Collins_COMPASS_2012] | proton   | h-     | AUTcollins       | compass    | x                    |
 | 3011  | [link][Collins_COMPASS_2012] | proton   | h-     | AUTcollins       | compass    | z                    |
 | 3022  | [link][Collins_COMPASS_2012] | proton   | h-     | AUTcollins       | compass    | pt                   |
+| 3700  | [link][3700]                 | proton   | pi+    | AUTcollins       | hermes     | x                    |
+| 3701  | [link][3701]                 | proton   | pi+    | AUTcollins       | hermes     | z                    |
+| 3702  | [link][3702]                 | proton   | pi+    | AUTcollins       | hermes     | pT                   |
+| 3703  | [link][3703]                 | proton   | pi0    | AUTcollins       | hermes     | x                    |
+| 3704  | [link][3704]                 | proton   | pi0    | AUTcollins       | hermes     | z                    |
+| 3705  | [link][3705]                 | proton   | pi0    | AUTcollins       | hermes     | pT                   |
+| 3706  | [link][3706]                 | proton   | pi-    | AUTcollins       | hermes     | x                    |
+| 3707  | [link][3707]                 | proton   | pi-    | AUTcollins       | hermes     | z                    |
+| 3708  | [link][3708]                 | proton   | pi-    | AUTcollins       | hermes     | pT                   |
+| 3709  | [link][3709]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3710  | [link][3710]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3711  | [link][3711]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3712  | [link][3712]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3713  | [link][3713]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+| 3714  | [link][3714]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+| 3715  | [link][3715]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+| 3716  | [link][3716]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+
 
 |3100 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x275_pip_ACC_opt5_merge11.txt
 |3110 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x275_pim_ACC_opt5_merge11.txt
