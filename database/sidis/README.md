@@ -96,6 +96,17 @@
 | 2515  | [link][AUT_COMPASS_2014]     | proton   | pi-    | AUTsivers        | compass    | x                    |
 | 2516  | [link][AUT_COMPASS_2014]     | proton   | pi-    | AUTsivers        | compass    | z                    |
 | 2517  | [link][AUT_COMPASS_2014]     | proton   | pi-    | AUTsivers        | compass    | pt                   |
+| 2518  | [link][2518]                 | proton   | pi+    | AUTsivers        | hermes     | x                    |
+| 2519  | [link][2519]                 | proton   | pi+    | AUTsivers        | hermes     | z                    |
+| 2520  | [link][2520]                 | proton   | pi+    | AUTsivers        | hermes     | pt                   |
+| 2521  | [link][2521]                 | proton   | pi0    | AUTsivers        | hermes     | x                    |
+| 2522  | [link][2522]                 | proton   | pi0    | AUTsivers        | hermes     | z                    |
+| 2523  | [link][2523]                 | proton   | pi0    | AUTsivers        | hermes     | pT                   |
+| 2524  | [link][2524]                 | proton   | pi-    | AUTsivers        | hermes     | x                    |
+| 2525  | [link][2525]                 | proton   | pi-    | AUTsivers        | hermes     | z                    |
+| 2526  | [link][2526]                 | proton   | pi-    | AUTsivers        | hermes     | pT                   |
+| 2527  | [link][2527]                 | proton   | pi+    | AUTsivers        | hermes     | x,z,pT               |
+| 2528  | [link][2528]                 | proton   | pi-    | AUTsivers        | hermes     | x,z,pT               |
 | 3000  | [link][Collins_HERMES_2010]  | proton   | pi+    | AUTcollins       | hermes     | x                    |
 | 3003  | [link][Collins_HERMES_2010]  | proton   | pi+    | AUTcollins       | hermes     | z                    |
 | 3026  | [link][Collins_HERMES_2010]  | proton   | pi+    | AUTcollins       | hermes     | pt                   |
@@ -141,6 +152,24 @@
 | 3019  | [link][Collins_COMPASS_2012] | proton   | h-     | AUTcollins       | compass    | x                    |
 | 3011  | [link][Collins_COMPASS_2012] | proton   | h-     | AUTcollins       | compass    | z                    |
 | 3022  | [link][Collins_COMPASS_2012] | proton   | h-     | AUTcollins       | compass    | pt                   |
+| 3700  | [link][3700]                 | proton   | pi+    | AUTcollins       | hermes     | x                    |
+| 3701  | [link][3701]                 | proton   | pi+    | AUTcollins       | hermes     | z                    |
+| 3702  | [link][3702]                 | proton   | pi+    | AUTcollins       | hermes     | pT                   |
+| 3703  | [link][3703]                 | proton   | pi0    | AUTcollins       | hermes     | x                    |
+| 3704  | [link][3704]                 | proton   | pi0    | AUTcollins       | hermes     | z                    |
+| 3705  | [link][3705]                 | proton   | pi0    | AUTcollins       | hermes     | pT                   |
+| 3706  | [link][3706]                 | proton   | pi-    | AUTcollins       | hermes     | x                    |
+| 3707  | [link][3707]                 | proton   | pi-    | AUTcollins       | hermes     | z                    |
+| 3708  | [link][3708]                 | proton   | pi-    | AUTcollins       | hermes     | pT                   |
+| 3709  | [link][3709]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3710  | [link][3710]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3711  | [link][3711]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3712  | [link][3712]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
+| 3713  | [link][3713]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+| 3714  | [link][3714]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+| 3715  | [link][3715]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+| 3716  | [link][3716]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+
 
 |3100 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x275_pip_ACC_opt5_merge11.txt
 |3110 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x275_pim_ACC_opt5_merge11.txt
@@ -174,6 +203,17 @@
 | 9022  | [link][9022]                 | COMPASS  | h-     | AUTsinphiS-z>0.2 |            | z                    |
 | 9033  | [link][9033]                 | COMPASS  | h+     | AUTsinphiS-z>0.2 |            | x                    |
 | 9044  | [link][9044]                 | COMPASS  | h-     | AUTsinphiS-z>0.2 |            | x                    |
+| 9055  | [link][9055]                 | proton   | pi+    | AUTsinphiS       | hermes     | x                    |
+| 9066  | [link][9066]                 | proton   | pi+    | AUTsinphiS       | hermes     | z                    |
+| 9077  | [link][9077]                 | proton   | pi+    | AUTsinphiS       | hermes     | pT                   |
+| 9088  | [link][9088]                 | proton   | pi0    | AUTsinphiS       | hermes     | x                    |
+| 9099  | [link][9099]                 | proton   | pi0    | AUTsinphiS       | hermes     | z                    |
+| 10010 | [link][10010]                | proton   | pi0    | AUTsinphiS       | hermes     | pT                   |
+| 10021 | [link][10021]                | proton   | pi-    | AUTsinphiS       | hermes     | x                    |
+| 10032 | [link][10032]                | proton   | pi-    | AUTsinphiS       | hermes     | z                    |
+| 10043 | [link][10043]                | proton   | pi-    | AUTsinphiS       | hermes     | pT                   |
+| 10054 | [link][10054]                | proton   | pi+    | AUTsinphiS       | hermes     | x,z,pT               |
+| 10065 | [link][10065]                | proton   | pi-    | AUTsinphiS       | hermes     | x,z,pT               |
 
 
 [?]: http://inspirehep.net/
