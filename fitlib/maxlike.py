@@ -132,20 +132,26 @@ class MAXLIKE:
         #--remove pdf/ff that is not in the step
         distributions=conf['params'].keys()  #--pdf,ppdf,ffpion,ffkaon,...
         for dist in list(distributions):
-            print('current %s'%dist)
             if  dist in step['active distributions']:
+                print('active',dist)
+                continue
+            elif 'passive distributions' in step and dist in step['passive distributions']:
+                print('passive',dist)
                 continue
             else:
+                print('remove',dist)
+                if '%s parametrization'%dist in conf:
+                    del conf['%s parametrization'%dist]
                 del conf['params'][dist]
-
-        for dist in list(distributions):
-            print('active distributions %s'%dist)
 
         #--set fixed==True for passive distributions
         if 'passive distributions' in step:
             for dist in step['passive distributions']:
                 for par in conf['params'][dist]:
-                    conf['params'][dist][par]['fixed']=True
+
+                    if conf['params'][dist][par]['fixed']==False:
+                        conf['params'][dist][par]['fixed']=True
+
                     #--set prior parameters values for passive distributions
                     for istep in step['dep']:
                         prior_order=self.order[istep]
@@ -158,9 +164,7 @@ class MAXLIKE:
         #--another version for fixed parameters
         if 'fix parameters' in step:
             for dist in step['fix parameters']:
-                print(dist)
                 for par in step['fix parameters'][dist]:
-                    print(par)
                     conf['params'][dist][par]['fixed']=True
                     #--set prior parameters values for passive distributions
                     for istep in step['dep']:
@@ -335,7 +339,7 @@ class MAXLIKE:
             chi2={}
 
             if self.prior!=None:
-                prior=load(self.prior)
+                prior=np.load(self.prior, allow_pickle = True, encoding = 'latin1').item()() #load(self.prior)
                 self.order=prior['order']
                 self.params=prior['params']
                 chi2=prior['chi2']
@@ -385,7 +389,7 @@ class MAXLIKE:
 
 if __name__=='__main__':
 
-    MAXLIKE('input_dglap.py',2,msrhook='mv <<fname>> step1',prior=None,seed=12345).run()
+    MAXLIKE('../../Boer-Mulders-20/input_COMPASS_fixedCollins.py',2,msrhook='mv <<fname>> step1',prior='../../Boer-Mulders-20/JAM20_UNIVERSAL/msr-inspected/014INS8W463O.msr.npy',seed=12345).run()
     #MAXLIKE('input_evo.py',2,msrhook='mv <<fname>> step2',prior='step1/Y2RM020ZW0NB.msr',seed=12345).run()
     #MAXLIKE('input_evo.py',2,msrhook='mv <<fname>> step3',prior='step2/Y2RM020ZW0NB.msr',seed=12345).run()
     #MAXLIKE('input_evo.py',2,msrhook='mv <<fname>> step4',prior='step3/Y2RM020ZW0NB.msr',seed=12345).run()
