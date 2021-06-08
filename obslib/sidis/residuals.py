@@ -84,8 +84,6 @@ class RESIDUALS(_RESIDUALS):
             #2020 HERMES data removes this y-dependent factor
             #"None" in this case means older HERMES that HAS a depol factor
             if col == 'HERMES' and depol == None: coeff *= 2 * (1 - y) / (1 + (1 - y)**2)
-                
-            print(coeff)
 
             FUT = collins.get_FUT(x,z,Q2,pT,tar,had)
             FUU = upol.get_FUU(x,z,Q2,pT,tar,had)
@@ -221,8 +219,6 @@ class RESIDUALS(_RESIDUALS):
                 # add depolarization factor for HERMES
                 #"None" in this case means older HERMES that HAS a depol factor
                 coeff = np.sqrt(1.0 - y) * (2 - y) / (1 - y + 0.5 * y**2)
-            
-            print(coeff)
 
             thy = coeff * FUTsinphiS / FUU
 
