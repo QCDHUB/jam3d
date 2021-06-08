@@ -162,13 +162,7 @@
 | 3707  | [link][3707]                 | proton   | pi-    | AUTcollins       | hermes     | z                    |
 | 3708  | [link][3708]                 | proton   | pi-    | AUTcollins       | hermes     | pT                   |
 | 3709  | [link][3709]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
-| 3710  | [link][3710]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
-| 3711  | [link][3711]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
-| 3712  | [link][3712]                 | proton   | pi+    | AUTcollins       | hermes     | x,z,pT               |
-| 3713  | [link][3713]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
-| 3714  | [link][3714]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
-| 3715  | [link][3715]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
-| 3716  | [link][3716]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
+| 3710  | [link][3710]                 | proton   | pi-    | AUTcollins       | hermes     | x,z,pT               |
 
 
 |3100 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x275_pip_ACC_opt5_merge11.txt
