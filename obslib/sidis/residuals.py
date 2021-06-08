@@ -44,6 +44,11 @@ class RESIDUALS(_RESIDUALS):
         col = self.tabs[k]['col'][i].strip().upper()
         try: F2 = self.tabs[k]['F2'][i]
         except KeyError: F2=None
+            
+        #This is to accommodate both older HERMES data that has a depol factor
+        #and the HERMES2020 data, where we are using the form without the depol factor
+        try: depol = self.tabs[k]['depol'][i]
+        except KeyError: depol = None 
 
         M = conf['aux'].M
         M2     = conf['aux'].M ** 2
@@ -77,7 +82,10 @@ class RESIDUALS(_RESIDUALS):
 
             # add depolarization factor
             #2020 HERMES data removes this y-dependent factor
-	    #if col == 'HERMES': coeff *= 2 * (1 - y) / (1 + (1 - y)**2)
+            #"None" in this case means older HERMES that HAS a depol factor
+            if col == 'HERMES' and depol == None: coeff *= 2 * (1 - y) / (1 + (1 - y)**2)
+                
+            print(coeff)
 
             FUT = collins.get_FUT(x,z,Q2,pT,tar,had)
             FUU = upol.get_FUU(x,z,Q2,pT,tar,had)
@@ -209,11 +217,12 @@ class RESIDUALS(_RESIDUALS):
                 FUU = upol.get_FUU(x,z,Q2,pT,'p',had)
 
             coeff = 1.
-            if col == 'HERMES':
+            if col == 'HERMES' and depol==None:
                 # add depolarization factor for HERMES
+                #"None" in this case means older HERMES that HAS a depol factor
                 coeff = np.sqrt(1.0 - y) * (2 - y) / (1 - y + 0.5 * y**2)
-            if col == 'COMPASS':
-                coeff = 1.
+            
+            print(coeff)
 
             thy = coeff * FUTsinphiS / FUU
 
@@ -349,6 +358,7 @@ if __name__ == '__main__':
     conf['ffk']          = ff0.FF('k')
     conf['collinspi']    = ff1.FF('pi')
     conf['collinsk']     = ff1.FF('k')
+    conf['Htildepi']     = ff1.FF('pi')
 
 
     conf['datasets']={}
@@ -460,7 +470,11 @@ if __name__ == '__main__':
     #conf['datasets']['sidis']['xlsx'][3002]='sidis/expdata/3002.xlsx' # | neutron  | pi+    | AUTcollins       | jlab       | x
     '''
 
-    conf['datasets']['sidis']['xlsx'][5003]='sidis/expdata/5003.xlsx' # | hermes. i don't know the rest of the info
+    #conf['datasets']['sidis']['xlsx'][5003]='sidis/expdata/5003.xlsx' # | hermes
+    #conf['datasets']['sidis']['xlsx'][3700]='sidis/expdata/3700.xlsx' # | hermes
+    #conf['datasets']['sidis']['xlsx'][3000]='sidis/expdata/3000.xlsx' # | hermes
+    #conf['datasets']['sidis']['xlsx'][9066]='sidis/expdata/9066.xlsx' # | hermes
+    conf['datasets']['sidis']['xlsx'][9011]='sidis/expdata/9011.xlsx' # | compass
 
     conf['datasets']['sidis']['norm']={}
     for k in conf['datasets']['sidis']['xlsx']: conf['datasets']['sidis']['norm'][k]={'value':1,'fixed':True,'min':0,'max':1}
