@@ -1,4 +1,4 @@
-# SIDIS DATABASE
+# LATTICE DATABASE
 
 | index | ref          
 | :--:  | :--:         | :--:   
