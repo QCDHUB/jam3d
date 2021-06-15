@@ -209,9 +209,9 @@ class RESIDUALS(_RESIDUALS):
 
         elif obs == 'AUTsinphiS':  # This is for collinear!
 
-            if '+' in had: 
+            if had == 'h+': 
                 had = 'pi+'
-            elif '-' in had: 
+            elif had == 'h-': 
                 had = 'pi-'
     
             if tar == 'p':
