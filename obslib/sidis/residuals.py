@@ -209,6 +209,11 @@ class RESIDUALS(_RESIDUALS):
 
         elif obs == 'AUTsinphiS':  # This is for collinear!
 
+            if '+' in had: 
+                had = 'pi+'
+            elif '-' in had: 
+                had = 'pi-'
+    
             if tar == 'p':
                 pT = None
                 FUTsinphiS = AUTsinphiS.get_FX(x, z, Q2, pT, 'p', had)
@@ -481,5 +486,6 @@ if __name__ == '__main__':
     conf['residuals'] = RESIDUALS()
 
     print(conf['residuals'].get_residuals())
+    
 
     #conf['residuals'].gen_report(verb=1, level=1)
