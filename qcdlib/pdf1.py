@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import sys
 import os
 import numpy as np
@@ -6,6 +7,7 @@ import time
 from qcdlib.core import CORE
 from qcdlib.interpolator import INTERPOLATOR
 from tools.config import conf
+from scipy.integrate import fixed_quad
 
 class PDF(CORE):
     """
@@ -48,6 +50,16 @@ class PDF(CORE):
         if self.shape=='nderiv': return self.get_collinear(x, Q2)
         elif self.shape=='deriv': return self.get_dcollinear(x,Q2)
 
+    def get_mom(self,Q2): #used for calculating the tensor charge for lattice data   NEW 6/15/2021
+        mom_arr=[]
+        mom_arr.append(0.)
+        for i in [1,2,3,4,5,6]:
+            #mom_arr.append(quad(lambda x: self.get_C(x,Q2)[i], 0., 1.)[0])
+            h1=np.vectorize(lambda x: self.get_C(x,Q2)[i])
+            mom_arr.append(fixed_quad(h1, 0, 1, n=25)[0])
+
+        return np.array(mom_arr)
+        
     #def get_dC(self, x, Q2):
     #    return self.get_dcollinear(x,Q2)
 
