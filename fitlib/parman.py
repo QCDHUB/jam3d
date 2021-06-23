@@ -172,7 +172,7 @@ class PARMAN:
                 elif 'proton widths sea' in conf['params'][parkind][k]['fixed']:
                     conf['params'][parkind][k]['value'] = conf['params']['pdf']['widths1_sea']['value']
                 elif 'sivers' in conf['params'][parkind][k]['fixed']:
-                    ref_par = conf['params'][parkind][k]['fixed'].replace('sivers','')
+                    ref_par = conf['params'][parkind][k]['fixed'].replace('sivers','').strip()
                     conf['params'][parkind][k]['value'] = conf['params']['sivers'][ref_par]['value']
                 else:
                     ref_par = conf['params'][parkind][k]['fixed']
