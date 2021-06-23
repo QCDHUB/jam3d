@@ -171,6 +171,9 @@ class PARMAN:
                     conf['params'][parkind][k]['value'] = conf['params']['pdf']['widths1_uv']['value']
                 elif 'proton widths sea' in conf['params'][parkind][k]['fixed']:
                     conf['params'][parkind][k]['value'] = conf['params']['pdf']['widths1_sea']['value']
+                elif 'sivers' in conf['params'][parkind][k]['fixed']:
+                    ref_par = conf['params'][parkind][k]['fixed'].replace('sivers','')
+                    conf['params'][parkind][k]['value'] = conf['params']['sivers'][ref_par]['value']
                 else:
                     ref_par = conf['params'][parkind][k]['fixed']
                     conf['params'][parkind][k]['value'] = conf['params'][parkind][ref_par]['value']
@@ -185,7 +188,7 @@ class PARMAN:
                         reference_flav=conf['params'][dist][flav+' '+par+' '+s]['fixed']
                         conf['params'][dist][flav+' '+par+' '+s]['value']=conf['params'][dist][reference_flav]['value']
 
-    def set_params(self,dist,FLAV,PAR,version):
+    def set_params(self,dist,FLAV,PAR,version,dist2=None):
 
         if version==0:
             iflav=0
