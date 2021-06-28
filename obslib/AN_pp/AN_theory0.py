@@ -535,7 +535,7 @@ def get_dsigST(x, z, xF, pT, rs, tar, had):
 
   ffcs += (hu * ftub * Hxxpz10ub) + (hd * ftdb * Hxxpz10db) + (hs * ftsb * Hxxpz10sb)
 
-  ffcs += ftub * (hdb * Hxxpz11db + hsb * Hxxpz11sb) + ftdb * (hub * Hxxpz11ub + hsb * Hxxpz11sb) + fts * (hub * Hxxpz11ub + hdb * Hxxpz11db)
+  ffcs += ftub * (hdb * Hxxpz11db + hsb * Hxxpz11sb) + ftdb * (hub * Hxxpz11ub + hsb * Hxxpz11sb) + ftsb * (hub * Hxxpz11ub + hdb * Hxxpz11db)
 
   ffcs += ftu * (hdb * Hxxpz12db + hsb * Hxxpz12sb) + ftd * (hub * Hxxpz12ub + hsb * Hxxpz12sb) + fts * (hub * Hxxpz12ub + hdb * Hxxpz12db)
 
@@ -566,13 +566,13 @@ def get_dsigST(x, z, xF, pT, rs, tar, had):
 
   QScs += (ubQS*dub + dbQS* ddb + sbQS*dsb)*(ftub+ftdb+ftsb)*sig1 + (ubQS+dbQS+sbQS)*(ftub*dub+ftdb*ddb+ftsb*dsb)*sig2 + (ubQS*ftub*dub+dbQS*ftdb*ddb+sbQS*ftsb*dsb)*sig3
 
-  QScs += (uQS*du + dQS*dd+ sQS*ds)*(ftub + ftdb +ftsb)*sig4 + (uQS*ftub+dQS*ftdb+sQS*fts)*(du+dd+ds)*sig5 + (uQS*ftub*du+dQS*ftdb*dd+sQS*ftsb*ds)*sig6
+  QScs += (uQS*du + dQS*dd+ sQS*ds)*(ftub + ftdb +ftsb)*sig4 + (uQS*ftub+dQS*ftdb+sQS*ftsb)*(du+dd+ds)*sig5 + (uQS*ftub*du+dQS*ftdb*dd+sQS*ftsb*ds)*sig6
 
   QScs += (ubQS*dub + dbQS*ddb+sbQS*dsb)*(ftu+ftd+fts)*sig4 + (ubQS*ftu + dbQS*ftd + sbQS*fts)*(dub + ddb +dsb)*sig5 + (ubQS*ftu*dub+dbQS*ftd*ddb+sbQS*fts*dsb)*sig6
 
   QScs += (uQS +dQS +sQS)*(ftub*dub + ftdb*ddb + ftsb*dsb)*sig7 + (uQS*ftub + dQS*ftdb+sQS*ftsb)*(dub + ddb + dsb)*sig8 + (uQS*ftub*dub+dQS*ftdb*ddb+sQS*ftsb*dsb)*sig9
 
-  QScs += (ubQS +dQS + sbQS)*(ftu*du+ftdb*ddb+ftsb*dsb)*sig7 + (ubQS*ftu+dbQS*ftd+sbQS*fts)*(du+dd+ds)*sig8 +(ubQS*ftu*du+dbQS*ftd*dd+sbQS*fts*ds)*sig9
+  QScs += (ubQS +dbQS + sbQS)*(ftu*du+ftd*dd+fts*ds)*sig7 + (ubQS*ftu+dbQS*ftd+sbQS*fts)*(du+dd+ds)*sig8 +(ubQS*ftu*du+dbQS*ftd*dd+sbQS*fts*ds)*sig9
 
   QScs += (uQS*ftub+dQS*ftdb +sQS*ftsb)*dg*sig10
 
@@ -690,9 +690,9 @@ if __name__ == '__main__':
                mode='gauss', nx=10, nz=10)
 
     AN = num / den
-    print(AN)
+    #print(AN)
 
-  test()
+#  test()
 
 # from timeit import Timer
 # t = Timer("test()", "from __main__ import test")
@@ -714,10 +714,11 @@ if __name__ == '__main__':
 # end = time.time()
 # print 'time=',(end-start)
 
-#  start = time.time()
-#  test()
-#  end = time.time()
-#  print 'time=', (end - start)
+  start = time.time()
+  for k in range(4000):
+      test()
+  end = time.time()
+  print('time=', (end - start))
 
   # Integration of the numerator from xmin to 1 and from zmin to 1 (the values for xmin and zmin are above)
 
