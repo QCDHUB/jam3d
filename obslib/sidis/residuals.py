@@ -125,7 +125,7 @@ class RESIDUALS(_RESIDUALS):
                     ROOT_S    = 3.42
                     W2_MIN    = 4.0
                     RANGE_MIN = 0.2
-                    RANGE_MAX = 0.85
+                    RANGE_MAX = 0.94
 
                 elif accelerator == 'HERMES':
                     ROOT_S    = 7.25
@@ -142,16 +142,30 @@ class RESIDUALS(_RESIDUALS):
 
                     Q2_MIN = 1
                     Q2_MAX = 1000
+                
+                    if accelerator=='COMPASS' or accelerator=='HERMES':
 
-                    yA = max(   # lower bound of integration
-                            RANGE_MIN,
-                            Q2_MIN / (x * ((ROOT_S ** 2) - M2)),
-                            (W2_MIN - M2) / ((1 - x) * ((ROOT_S ** 2) - M2))
-                            )
-                    yB = min(   # upper bound of integration
-                            Q2_MAX / (x * ((ROOT_S ** 2) - M2)),
-                            RANGE_MAX
-                            )
+                        yA = max(   # lower bound of integration
+                                RANGE_MIN,
+                                Q2_MIN / (x * ((ROOT_S ** 2) - M2)),
+                                (W2_MIN - M2) / ((1 - x) * ((ROOT_S ** 2) - M2))
+                                )
+                        yB = min(   # upper bound of integration
+                                Q2_MAX / (x * ((ROOT_S ** 2) - M2)),
+                                RANGE_MAX
+                                )
+
+                    elif accelerator=='CLAS':
+                        yA = max(   # lower bound of integration
+                                RANGE_MIN,
+                                Q2_MIN / (x * ((ROOT_S ** 2) - M2)),
+                                (W2_MIN - M2) / ((1 - x) * ((ROOT_S ** 2) - M2)),
+                                np.sqrt(pT**2+Mpi**2)*2*M/(z*(ROOT_S**2-M**2)) #needed to keep ppa_over_Eh from taking sqrt of negative #
+                                )
+                        yB = min(   # upper bound of integration
+                                Q2_MAX / (x * ((ROOT_S ** 2) - M2)),
+                                RANGE_MAX
+                                )
 
                     # any value dependent on y must be a function so that its value
                     # may be recalculated during the integration process
@@ -214,7 +228,7 @@ class RESIDUALS(_RESIDUALS):
 
             if col=='COMPASS':   thy = yield_thy(col, should_integrate = True,  ny=10)
             elif col=='HERMES':  thy = yield_thy(col, should_integrate = True, ny=10)
-            elif col=='CLAS':    thy = yield_thy(col, should_integrate = False, ny=10)
+            elif col=='CLAS':    thy = yield_thy(col, should_integrate = True, ny=10)
 
         elif obs == 'AUTsinphiS':  # This is for collinear!
 
@@ -479,7 +493,7 @@ if __name__ == '__main__':
     #conf['datasets']['sidis']['xlsx'][3700]='sidis/expdata/3700.xlsx' # | hermes
     #conf['datasets']['sidis']['xlsx'][3000]='sidis/expdata/3000.xlsx' # | hermes
     #conf['datasets']['sidis']['xlsx'][9066]='sidis/expdata/9066.xlsx' # | hermes
-    conf['datasets']['sidis']['xlsx'][9011]='sidis/expdata/9011.xlsx' # | compass
+    conf['datasets']['sidis']['xlsx'][7010]='sidis/expdata/7010.xlsx' # | CLAS
 
     conf['datasets']['sidis']['norm']={}
     for k in conf['datasets']['sidis']['xlsx']: conf['datasets']['sidis']['norm'][k]={'value':1,'fixed':True,'min':0,'max':1}
