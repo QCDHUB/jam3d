@@ -103,7 +103,8 @@ def _get_FUTWZ(xA,xB,qT,hadronA,hadronB,boson,TransversePolarizationA,Transverse
         
                 wq = np.abs(w_hadronA[5]) + np.abs(w_hadronB[2]) # s ubar
                 K = -2. * qT * MA / wq
-                res += K*conf['aux'].Vus**2 * 2. * sA * ubarB * np.exp(-qT**2 / wq) / (np.pi * wq)    
+                res += K*conf['aux'].Vus**2 * 2. * sA * ubarB * np.exp(-qT**2 / wq) / (np.pi * wq)  
+                
             elif boson == 'Z':
                 # uA abarB + ubarA uB + dA dbarB + dbarA dA + sA sbarB + sbarA sbarB
                 uA    = PDFA[1]
