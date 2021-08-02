@@ -128,11 +128,11 @@ def _get_FUTWZ(xA,xB,qT,hadronA,hadronB,boson,TransversePolarizationA,Transverse
                 K = -2. * qT * MA / wq
                 res += K*(conf['aux'].cvuz**2 + conf['aux'].cauz**2) * ubarA * uB * np.exp(-qT**2 / wq) / (np.pi * wq)  
 
-                wq = np.abs(w_hadronA[1]) + np.abs(w_hadronB[2]) # d dbar
+                wq = np.abs(w_hadronA[3]) + np.abs(w_hadronB[4]) # d dbar
                 K = -2. * qT * MA / wq
                 res += K*(conf['aux'].cvdz**2 + conf['aux'].cadz**2) * dA * dbarB * np.exp(-qT**2 / wq) / (np.pi * wq)  
 
-                wq = np.abs(w_hadronA[2]) + np.abs(w_hadronB[1]) # dbar d
+                wq = np.abs(w_hadronA[4]) + np.abs(w_hadronB[3]) # dbar d
                 K = -2. * qT * MA / wq
                 res += K*(conf['aux'].cvdz**2 + conf['aux'].cadz**2) * dbarA * dB * np.exp(-qT**2 / wq) / (np.pi * wq)  
 
