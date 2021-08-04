@@ -50,9 +50,10 @@ class RESIDUALS(_RESIDUALS):
         try: depol = self.tabs[k]['depol'][i]
         except KeyError: depol = None 
 
-        M = conf['aux'].M
+        M      = conf['aux'].M
         M2     = conf['aux'].M ** 2
-        Mpi2     = conf['aux'].Mpi ** 2
+        Mpi    = conf['aux'].Mpi
+        Mpi2   = conf['aux'].Mpi ** 2
 
         if   tar=='proton':    tar='p'
         elif tar=='neutron':   tar='n'
@@ -124,7 +125,7 @@ class RESIDUALS(_RESIDUALS):
                     ROOT_S    = 3.42
                     W2_MIN    = 4.0
                     RANGE_MIN = 0.2
-                    RANGE_MAX = 0.85
+                    RANGE_MAX = 0.94
 
                 elif accelerator == 'HERMES':
                     ROOT_S    = 7.25
@@ -141,16 +142,30 @@ class RESIDUALS(_RESIDUALS):
 
                     Q2_MIN = 1
                     Q2_MAX = 1000
+                
+                    if accelerator=='COMPASS' or accelerator=='HERMES':
 
-                    yA = max(   # lower bound of integration
-                            RANGE_MIN,
-                            Q2_MIN / (x * ((ROOT_S ** 2) - M2)),
-                            (W2_MIN - M2) / ((1 - x) * ((ROOT_S ** 2) - M2))
-                            )
-                    yB = min(   # upper bound of integration
-                            Q2_MAX / (x * ((ROOT_S ** 2) - M2)),
-                            RANGE_MAX
-                            )
+                        yA = max(   # lower bound of integration
+                                RANGE_MIN,
+                                Q2_MIN / (x * ((ROOT_S ** 2) - M2)),
+                                (W2_MIN - M2) / ((1 - x) * ((ROOT_S ** 2) - M2))
+                                )
+                        yB = min(   # upper bound of integration
+                                Q2_MAX / (x * ((ROOT_S ** 2) - M2)),
+                                RANGE_MAX
+                                )
+
+                    elif accelerator=='CLAS':
+                        yA = max(   # lower bound of integration
+                                RANGE_MIN,
+                                Q2_MIN / (x * ((ROOT_S ** 2) - M2)),
+                                (W2_MIN - M2) / ((1 - x) * ((ROOT_S ** 2) - M2)),
+                                np.sqrt(pT**2+Mpi**2)*2*M/(z*(ROOT_S**2-M**2)) #needed to keep ppa_over_Eh from taking sqrt of negative #
+                                )
+                        yB = min(   # upper bound of integration
+                                Q2_MAX / (x * ((ROOT_S ** 2) - M2)),
+                                RANGE_MAX
+                                )
 
                     # any value dependent on y must be a function so that its value
                     # may be recalculated during the integration process
@@ -159,23 +174,29 @@ class RESIDUALS(_RESIDUALS):
 
                     if accelerator=='HERMES':
                         FUU     = lambda y : (1.- y + 0.5*y**2) * upol.get_FUU(x, z, Q(y) ** 2, pT, tar, had)
-                        FUUcos2 = lambda y : (1.-y) * (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had) + cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had))
+                        FUUcos2 = lambda y : (1.-y) * (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had) + cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had)) #BOTH
+                        #FUUcos2 = lambda y : (1.-y) * (cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had)) #cahn
+                        #FUUcos2 = lambda y : (1.-y) * (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had)) #BM
 
                     elif accelerator=='COMPASS':
                         FUU     = lambda y : upol.get_FUU(x, z, Q(y) ** 2, pT, tar, had)
-                        FUUcos2 = lambda y : (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had) + cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had))
+                        FUUcos2 = lambda y : (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had) + cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had)) #BOTH
+                        #FUUcos2 = lambda y : (cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had)) #cahn
+                        #FUUcos2 = lambda y : (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had)) #BM
 
                     elif accelerator=='CLAS':
                         # CLAS accelerators measure H4 / (H2 + H1), which can be related
                         # to the AUUcos2 asymmetry.
                         gamma   = lambda y : (2 * M * x) / Q(y)
-                        kappa   = lambda y : 1 / (1 + gamma(x, y) ** 2)
-                        zeta    = lambda y : 1 - y - (0.25 * (gamma(x, y) ** 2) * (y ** 2))
-                        epsilon = lambda y : 1 / (1 + ((y ** 2) / (2 * kappa(x, y) * zeta(x, y))))
+                        kappa   = lambda y : 1 / (1 + gamma(y) ** 2)
+                        zeta    = lambda y : 1 - y - (0.25 * (gamma(y) ** 2) * (y ** 2))
+                        epsilon = lambda y : 1 / (1 + ((y ** 2) / (2 * kappa(y) * zeta(y))))
                         ppa_over_Eh = lambda y: np.sqrt(1-(pT**2 + Mpi**2)*(2.*M*x/(z*Q(y)**2))**2)
 
-                        FUU     = lambda y : ppa_over_Eh*(kappa/epsilon)*(1+gamma**2/(2.*x)) * upol.get_FUU(x, z, Q(y) ** 2, pT, tar, had)
-                        FUUcos2 = lambda y : (ppa_over_Eh/2.)*(1+gamma**2/(2.*x)) * (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had) + cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had))
+                        FUU     = lambda y : ppa_over_Eh(y)*(kappa(y)/epsilon(y))*(1+gamma(y)**2/(2.*x)) * upol.get_FUU(x, z, Q(y) ** 2, pT, tar, had)
+                        FUUcos2 = lambda y : (ppa_over_Eh(y)/2.)*(1+gamma(y)**2/(2.*x)) * (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had) + cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had)) #BOTH
+                        #FUUcos2 = lambda y : (ppa_over_Eh(y)/2.)*(1+gamma(y)**2/(2.*x)) * (cahn.get_cahn(x, z, Q(y) ** 2, pT, tar, had)) #cahn
+                        #FUUcos2 = lambda y : (ppa_over_Eh(y)/2.)*(1+gamma(y)**2/(2.*x)) * (boermulders.get_FUU(x, z, Q(y) ** 2, pT, tar, had)) #BM
 
                     # integrate over y for the numerator and denominator of AUUcos2
                     FUUcos2_integral = fast_integrate(lambda y : (1. / (Q(y) ** 4)) * FUUcos2(y), yA, yB, ny)[0]
@@ -196,7 +217,9 @@ class RESIDUALS(_RESIDUALS):
                         coeff =  epsilon / (2. * kappa)
 
 
-                    FUUcos2 = (boermulders.get_FUU(x, z, Q2, pT, tar, had) + cahn.get_cahn(x, z, Q2, pT, tar, had))
+                    FUUcos2 = (boermulders.get_FUU(x, z, Q2, pT, tar, had) + cahn.get_cahn(x, z, Q2, pT, tar, had)) #BOTH
+                    #FUUcos2 = ( cahn.get_cahn(x, z, Q2, pT, tar, had)) #cahn
+                    #FUUcos2 = (boermulders.get_FUU(x, z, Q2, pT, tar, had)) #BM
                     FUU     = upol.get_FUU(x,z,Q2,pT,tar,had)
 
                     theory = coeff * FUUcos2 / FUU
@@ -209,11 +232,6 @@ class RESIDUALS(_RESIDUALS):
 
         elif obs == 'AUTsinphiS':  # This is for collinear!
 
-            if had == 'h+': 
-                had = 'pi+'
-            elif had == 'h-': 
-                had = 'pi-'
-    
             if tar == 'p':
                 pT = None
                 FUTsinphiS = AUTsinphiS.get_FX(x, z, Q2, pT, 'p', had)
@@ -475,7 +493,7 @@ if __name__ == '__main__':
     #conf['datasets']['sidis']['xlsx'][3700]='sidis/expdata/3700.xlsx' # | hermes
     #conf['datasets']['sidis']['xlsx'][3000]='sidis/expdata/3000.xlsx' # | hermes
     #conf['datasets']['sidis']['xlsx'][9066]='sidis/expdata/9066.xlsx' # | hermes
-    conf['datasets']['sidis']['xlsx'][9011]='sidis/expdata/9011.xlsx' # | compass
+    conf['datasets']['sidis']['xlsx'][7010]='sidis/expdata/7010.xlsx' # | CLAS
 
     conf['datasets']['sidis']['norm']={}
     for k in conf['datasets']['sidis']['xlsx']: conf['datasets']['sidis']['norm'][k]={'value':1,'fixed':True,'min':0,'max':1}
@@ -486,6 +504,5 @@ if __name__ == '__main__':
     conf['residuals'] = RESIDUALS()
 
     print(conf['residuals'].get_residuals())
-    
 
     #conf['residuals'].gen_report(verb=1, level=1)
