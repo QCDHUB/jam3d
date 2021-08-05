@@ -19,6 +19,7 @@ class RESIDUALS(_RESIDUALS):
     def __init__(self):
         self.reaction = 'AN'
         self.tabs = conf['AN tabs']
+        self.storage={}
         self.setup()
 
     def _get_theory(self, entry):
@@ -34,12 +35,17 @@ class RESIDUALS(_RESIDUALS):
         if obs == 'AN':
             sigST = AN_theory.get_sigST(
                 xF, pT, rs, target, hadron, mode='gauss', nx=10, nz=10)
-            sig = AN_theory.get_sig(
-                xF, pT, rs, target, hadron, mode='gauss', nx=10, nz=10)
+            
+            if conf['unpol PDF FF fixed']==True and (xF,pT,rs,target,hadron) not in self.storage:
+                self.storage[(xF,pT,rs,target,hadron)] = AN_theory.get_sig(xF,pT,rs,target,hadron,mode='gauss', nx=10, nz=10)
+            elif conf['unpol PDF FF fixed']==False:
+                self.storage[(xF,pT,rs,target,hadron)] = AN_theory.get_sig(xF,pT,rs,target,hadron,mode='gauss', nx=10, nz=10)
+            
+            sig = self.storage[(xF,pT,rs,target,hadron)]
+            
             thy = sigST / sig
 
             #print hadron,xF,thy
-
         return thy
 
     def gen_report(self, verb=1, level=1):
