@@ -178,6 +178,23 @@
 |3180 |         [Collins EIC data from Ralf]  aut_ep_noradcor.5x41_pip_HB_opt5_merge11.txt
 |3190 |         [Collins EIC data from Ralf]  aut_ep_noradcor.5x41_pim_HB_opt5_merge11.txt
 
+
+|3440 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x275_pip_HB_merge11.xlsx
+|3441 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x275_pim_HB_merge11.xlsx
+|3442 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x100_pip_HB_merge11.xlsx
+|3443 |         [Collins EIC data from Ralf]  aut_ep_noradcor.18x100_pim_HB_merge11.xlsx
+|3444 |         [Collins EIC data from Ralf]  aut_ep_noradcor.10x100_pip_HB_merge11.xlsx
+|3445 |         [Collins EIC data from Ralf]  aut_ep_noradcor.10x100_pim_HB_merge11.xlsx
+|3446 |         [Collins EIC data from Ralf]  aut_ep_noradcor.5x41_pip_HB_merge11.xlsx
+|3447 |         [Collins EIC data from Ralf]  aut_ep_noradcor.5x41_pim_HB_merge11.xlsx
+
+
+
+
+
+
+
+
 | 4000  | [link][AUT_COMPASS_2008]     | deuteron | pi+    | AUTcollins       | compass    | x                    |
 | 4002  | [link][AUT_COMPASS_2008]     | deuteron | pi+    | AUTcollins       | compass    | z                    |
 | 4001  | [link][AUT_COMPASS_2008]     | deuteron | pi+    | AUTcollins       | compass    | pt                   |
