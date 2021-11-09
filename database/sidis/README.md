@@ -189,6 +189,13 @@
 |3447 |         [Collins EIC data from Ralf]  aut_ep_noradcor.5x41_pim_HB_merge11.xlsx
 
 
+|3450 |         [Collins EIC data from Ralf]  aut_en_noradcor.18x100_pip_HB_merge11.xlsx
+|3451 |         [Collins EIC data from Ralf]  aut_en_noradcor.18x100_pim_HB_merge11.xlsx
+|3452 |         [Collins EIC data from Ralf]  aut_en_noradcor.10x100_pip_HB_merge11.xlsx
+|3453 |         [Collins EIC data from Ralf]  aut_en_noradcor.10x100_pim_HB_merge11.xlsx
+|3454 |         [Collins EIC data from Ralf]  aut_en_noradcor.5x41_pip_HB_merge11.xlsx
+|3455 |         [Collins EIC data from Ralf]  aut_en_noradcor.5x41_pim_HB_merge11.xlsx
+
 
 
 
